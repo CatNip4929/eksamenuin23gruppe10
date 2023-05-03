@@ -1,4 +1,4 @@
 {
     "extends": "sanity/eslint-config-studio",
-    "eslint.workingDirectories": [".sanity", ".frontend"]
+    "eslint.workingDirectories": ["./sanity", "./frontend"]
 }
