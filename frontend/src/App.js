@@ -1,9 +1,12 @@
 import "./App.css";
-import { fetchAllGames } from "./lib/sanity/gameServices";
+
 import {useState, useEffect} from 'react'
-import GameShop from "./components/pages/GameShop";
 import { Route, Routes} from 'react-router-dom';
-import MyGames from "./components/pages/MyGames";
+import Dashboard from "./components/pages/Dashboard";
+import { fetchAllGames } from "./lib/sanity/gameServices";
+import GameShop from "./components/pages/GameShop";
+import GamePage from "./components/pages/GamePage";
+
 
 
 
@@ -18,12 +21,12 @@ function App() {
   useEffect(() =>{
     getGames()
   }, [])
-
+  
   return (
     <>
     <Routes>
       <Route index element={<GameShop games={game}/>}/>
-      <Route path=":slug" element={<MyGames/>}/>
+      <Route path=":slug" element={<GamePage/>}/>
     </Routes>
     </>
   )
