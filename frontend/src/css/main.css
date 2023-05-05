@@ -4,7 +4,6 @@ html {
 
 .nav-bar {
   background-color: #161616;
-  color: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,19 +12,22 @@ html {
 }
 
 .logo {
-  font-size: 2rem;
+  height: 50%;
+  width: 50%;
 }
 
-.nav ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
+.nav-bar ul li {
   display: flex;
+  list-style: none;
   gap: 1.5rem;
 }
 
 .nav-bar a {
-  color: inherit;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-bar li:active {
 }
 
 /*# sourceMappingURL=main.css.map */
