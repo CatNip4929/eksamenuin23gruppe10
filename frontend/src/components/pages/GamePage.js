@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { FetchGame } from "../../lib/sanity/gameServices"
+import { fetchGame } from "../../lib/sanity/gameServices"
 
 
 
@@ -12,16 +12,16 @@ export default function GamePage () {
   const [games, setGames] = useState(null)
 
   const getGames = async (slug) => {
-    const data = await FetchGame(slug)
-    console.log(data)
+    const data = await fetchGame(slug)
     setGames(data[0])
   }
-  console.log(games)
 
   useEffect(() => {
       getGames(slug)
   }, [slug])
+  
   return (
+    
     <>
     <article>
       <h2>{games?.game_title}</h2>

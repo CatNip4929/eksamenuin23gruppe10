@@ -72,6 +72,12 @@ export default {
             title: 'Spillkategori',
             type: 'reference',
             to: [{type: 'categories'}]
+        },
+        {
+            name: 'api_id',
+            title: 'API_ID',
+            type: 'reference',
+            to: [{type: 'categories'}]
         }
 
             
