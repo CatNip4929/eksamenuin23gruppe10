@@ -4,13 +4,9 @@ export default {
     title: 'kartotek',
     fields: [
         {
-            name: 'lib_slug',
-            type: 'slug',
-            title: 'URL-tittel',
-            options: {
-                source: 'game_title',
-                slugify: input => input.toLowerCase().replace(/\s+/g, '-').slice(0,150)
-            }
+            name: 'game_title',
+            type: 'string',
+            title: 'Spill'
         },
         {
             title: 'game',
@@ -27,7 +23,7 @@ export default {
             title: 'game_time',
             name: 'gametime',
             type: 'number',
-          },
+          }
         
 
     ]

@@ -32,10 +32,64 @@ export default {
             title: 'bilde'
         },
         {
-            name: 'my_games',
+            name: 'my_gamesarray',
             type: 'array',
-            of: [{type: 'reference', to:{type: 'library_item'}}]
-            
-          }    
+            of: [
+                {
+                type: 'object', 
+                name: 'itemen',
+                title: 'mine favoritter',
+                fields: [
+                    {
+                        name: 'my_games',
+                        title: 'mine favoritter',
+                        type: 'string'    
+                    },
+                    {
+                        name: 'arrayone',
+                        title: 'mine favorittter',
+                        type: 'array',
+                        of:
+                        [
+                            {
+                                name: 'games',
+                                type: 'reference',
+                                to: [{type: 'games'}],
+                            },
+                        ]
+                    },
+                    {
+                        name: 'isFavorite',
+                        type: 'boolean',
+                    },
+                 ]       
+                },
+                {
+                    type: 'object',
+                    name: 'My_games',
+                    title: 'mine spill',
+                    fields: [
+                        {
+                            name: 'my_games',
+                            title: 'mine spill',
+                            type: 'string'    
+                        },
+                        {
+                            name: 'arraytwo',
+                            title: 'mine spill',
+                            type: 'array',
+                            of:
+                            [
+                                {
+                                    name: 'games',
+                                    type: 'reference',
+                                    to: [{type: 'games'}],
+                                },
+                            ]
+                        },
+                            ]
+                },
+        ] 
+    },       
     ]
 }
