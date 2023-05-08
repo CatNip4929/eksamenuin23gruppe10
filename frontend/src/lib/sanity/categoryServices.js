@@ -1,6 +1,6 @@
 import {client} from "./client"
 
-export const fetchAlllCategories = async () => {
+export const fetchAllCategories = async () => {
     const data = await client.fetch(`*[_type == "categories"]`)
     return data
 }

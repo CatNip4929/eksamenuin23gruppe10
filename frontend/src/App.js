@@ -6,6 +6,7 @@ import Dashboard from "./components/pages/Dashboard";
 import { fetchAllGames, fetchImages } from "./lib/sanity/gameServices";
 import GameShop from "./components/pages/GameShop";
 import GamePage from "./components/pages/GamePage";
+import Login from "./components/Login";
 
 
 
@@ -31,11 +32,11 @@ function App() {
     getGames()
     getImages()
   }, [])
-  
+  //<Route index element={<GameShop games={game} images={images}/>}/>
   return (
     <>
     <Routes>
-      <Route index element={<GameShop games={game} images={images}/>}/>
+      <Route index element={<Login games={game} images={images}/>}/>
       <Route path=":slug" element={<GamePage/>}/>
     </Routes>
     </>

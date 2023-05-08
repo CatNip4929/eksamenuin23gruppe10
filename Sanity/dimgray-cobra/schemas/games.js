@@ -78,9 +78,22 @@ export default {
             title: 'API_ID',
             type: 'reference',
             to: [{type: 'categories'}]
-        }
-
-            
-        
-    ]
+        }  
+    ],
+    //Hent dataen fra feltene over og sett som variabler som kan brukes i prepare.
+    //lar meg vise spilldata i en array i sanity studio, på en pen måte.
+    preview: {
+        select: {
+            image: 'game_image',
+            title: 'game_title',
+            developer: 'game_developers',
+            date: 'game_release'
+        },
+        //gjør klar hvordan ting skal vises i hvilken rekefølge.
+        prepare: ({image, title, developer, date}) => ({
+            title,
+            subtitle: `${developer}, released: (${date})`,
+            media: image
+        })
+    }
 }
