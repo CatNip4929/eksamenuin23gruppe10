@@ -16,9 +16,17 @@ function App() {
   const [game, setGame] = useState(null)
   const [images, setImages] = useState(null)
   
-  const [exists, setExists] = useState()
+  const [exists, setExists] = useState(() => {
+    const saved = localStorage.getItem("exists")
+    const initialValue = JSON.parse(saved)
+    return initialValue || ""
+  })
   //State for å holde på hvilken bruker som er logget inn?
-  const [user, setUser] = useState({email: "", name: ""})
+  const [user, setUser] = useState(() => {
+    const saved = localStorage.getItem("user")
+    const initialValue = JSON.parse(saved)
+    return initialValue || ""
+  })
 
   //fetch for alle spill
   const getGames = async () => {
@@ -34,7 +42,10 @@ function App() {
   useEffect(() =>{
     getGames()
     getImages()
-  }, [])
+    //lagrer userdata i localStorage i nettleserens Local Storage, under Key og Value.
+    localStorage.setItem("user", JSON.stringify(user))
+    localStorage.setItem("exists", JSON.stringify(exists))
+  }, [user, exists])
   //<Route index element={<GameShop games={game} images={images}/>}/>
   return (
     <>
@@ -43,8 +54,8 @@ function App() {
       :
       <Welcome user={user} />}
       />
-      <Route path='home' element={<GameShop user={user} setUser={setUser}/>} />
-      // <Route path=":slug" element={<GamePage/>}/>
+      <Route path='home' element={<GameShop user={user}/>} />
+      <Route path=":slug" element={<GamePage/>}/>
     </Routes>
     </>
   )
