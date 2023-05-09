@@ -26,7 +26,7 @@ export default function Login ({setUser, exists, setExists}) {
             return
         }
         setExists(true)
-        setUser(data.name)
+        setUser(data)
     }
     
     

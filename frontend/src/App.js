@@ -15,7 +15,7 @@ import Welcome from "./components/Welcome";
 function App() {
   const [game, setGame] = useState(null)
   const [images, setImages] = useState(null)
-  // const [login, setlogin] = useState({email: "", password: ""})
+  
   const [exists, setExists] = useState()
   //State for å holde på hvilken bruker som er logget inn?
   const [user, setUser] = useState({email: "", name: ""})
