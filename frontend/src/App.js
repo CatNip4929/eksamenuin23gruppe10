@@ -4,7 +4,7 @@ import {useState, useEffect} from 'react'
 import { Route, Routes} from 'react-router-dom';
 import Dashboard from "./components/pages/Dashboard";
 import { fetchAllGames, fetchImages } from "./lib/sanity/gameServices";
-import GameShop from "./components/pages/GameShop";
+import GameShop from "./components/pages/MyGames";
 import GamePage from "./components/pages/GamePage";
 import Login from "./components/Login";
 import Welcome from "./components/Welcome";
