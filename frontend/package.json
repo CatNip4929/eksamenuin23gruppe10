@@ -48,7 +48,7 @@
     "css-minify": "^2.0.0",
     "npm": "^9.6.4",
     "postcss-cli": "^10.1.0",
-    "react-router-dom": "^6.11.0",
+    "react-router-dom": "^6.11.1",
     "run-all": "^1.0.1",
     "sass": "^1.62.0"
   }

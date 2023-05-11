@@ -1,13 +1,14 @@
 import "./css/main.css";
 
 import {useState, useEffect} from 'react'
-import { Route, Routes} from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom';
 import Dashboard from "./components/Dashboard";
 import { fetchAllGames, fetchImages } from "./lib/sanity/gameServices";
 import GameShop from "./components/pages/MyGames";
 import GamePage from "./components/pages/GamePage";
 import Login from "./components/Login";
 import Welcome from "./components/Welcome";
+import NavBar from "./components/NavBar";
 
 
 
@@ -49,16 +50,26 @@ function App() {
   //<Route index element={<GameShop games={game} images={images}/>}/>
   return (
     <>
-    <Routes>
-      <Route index element={!exists? <Login setUser={setUser} exists={exists} setExists={setExists} />
-      :
-      <Welcome user={user} />}
-      />
-      <Route path='home' element={<GameShop user={user}/>} />
-      <Route path=":slug" element={<GamePage/>}/>
-    </Routes>
+   
+      <div className="App">
+        <NavBar/>
+        <Routes>
+          <Route index element={<GameShop gamesToShow={3}/> } />
+          <Route path="/gameshop" element={<GameShop gamesToShow={10}/>}/>
+        </Routes>
+      </div>
+    
     </>
-  )
+  );
 }
 
 export default App;
+
+{/* <Routes>
+<Route index element={!exists? <Login setUser={setUser} exists={exists} setExists={setExists} />
+:
+<Welcome user={user} />}
+/>
+<Route path='home' element={<GameShop user={user}/>} />
+<Route path=":slug" element={<GamePage/>}/>
+</Routes> */}
