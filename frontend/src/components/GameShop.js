@@ -20,12 +20,21 @@ export default function GameShop({gamesToShow}) {
     <div>
       <h1>GameShop</h1>
       <div className="games-container">
-      {games?.map((p,i) => (<GameCard key={i} gameinfo={p}/> ))}
+      {games.map((game, index) => (
+  <div key={index}>
+    <img src={game.background_image} style={{maxWidth: "200px"}} alt={game.name} />
+    <h2>{game.name}</h2>
+    <p>{game.genres.map((genre) => genre.name).join(", ")}</p>
+
       
+      </div>
+      ))}
       </div>
     </div>
   );
 }
+// {games?.map((p,i) => (<GameCard key={i} gameinfo={p}/> ))}
+
 // {games.map((game, index) => (
 //   <div key={index}>
 //     <img src={game.background_image} style={{maxWidth: "200px"}} alt={game.name} />
