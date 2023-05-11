@@ -1,6 +1,6 @@
 import GameCard from "../GameCard"
 
-export default function GameShop ({games, images}) {
+export default function MyGames ({games, images}) {
   return (
     <>
       <h1>GameShop</h1>

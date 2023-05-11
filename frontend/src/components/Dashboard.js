@@ -1,10 +1,12 @@
-export default function Dashboard() {
+import GameCard from "./GameCard"
+import GameShop from "./GameShop"
 
+export default function Dashboard ({games}) {
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <div className="games-container">
-    </div>
-    </div>
+    <>
+      <h1>Dashboard</h1>¨
+      <GameShop gamesToShow={3}/>
+      
+    </>
   )
 }

@@ -1,8 +1,8 @@
-import "./App.css";
+import "./css/main.css";
 
 import {useState, useEffect} from 'react'
 import { Route, Routes} from 'react-router-dom';
-import Dashboard from "./components/pages/Dashboard";
+import Dashboard from "./components/Dashboard";
 import { fetchAllGames, fetchImages } from "./lib/sanity/gameServices";
 import GameShop from "./components/pages/MyGames";
 import GamePage from "./components/pages/GamePage";
