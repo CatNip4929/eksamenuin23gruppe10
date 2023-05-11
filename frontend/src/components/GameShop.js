@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export default function GameShop() {
+export default function GameShop({gamesToShow}) {
   const [games, setGames] = useState([]);
 
   useEffect(() => {
@@ -8,7 +8,7 @@ export default function GameShop() {
       const response = await fetch(`https://api.rawg.io/api/games?ordering=-released&key=37183cfb9c70422587800abe07c5aebc&page_size=100`);
       const data = await response.json();
       const imageGames = data.results.filter((game) => game.background_image !== null);
-      const gameLimitations = imageGames.slice(0, 10);
+      const gameLimitations = imageGames.slice(0, gamesToShow);
       setGames(gameLimitations);
     };
 

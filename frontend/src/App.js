@@ -12,8 +12,8 @@ function App() {
           <div className="App">
             <NavBar />
             <Routes>
-              <Route index element={<Dashboard />} />
-              <Route path="/gameshop" element={<GameShop />} />
+              <Route index element={<GameShop gamesToShow ={3}/>} />
+              <Route path="/gameshop" element={<GameShop gamesToShow ={10} />} />
             </Routes>
           </div>
         </Router>
