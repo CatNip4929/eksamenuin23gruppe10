@@ -21,6 +21,7 @@ export default {
             name: 'category_image',
             type: 'image',
             title: 'bilde'
-        }
+        },
+
     ]
 }

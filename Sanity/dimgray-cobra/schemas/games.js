@@ -1,40 +1,99 @@
 export default {
     name: 'games',
     type: 'document',
-    title: 'spill-navn',
+    title: 'Spill',
     fields: [
         {
-            name: 'games_title',
+            name: 'game_title',
             type: 'string',
-            title: 'Spill-navn'
+            title: 'Spill'
         },
         {
             name: 'slug',
             type: 'slug',
             title: 'URL-tittel',
             options: {
-                source: 'games_title',
+                source: 'game_title',
                 slugify: input => input.toLowerCase().replace(/\s+/g, '-').slice(0,150)
             }
         },
         {
-            name: 'games_rating',
+            name: 'game_rating',
             type: 'number',
-            title: 'vurdering'
+            title: 'Rating'
+        },
+        {
+            name: 'game_plot',
+            type: 'text',
+            title: 'Oppsumering'
+        },
+        {
+            name: 'game_tags',
+            type: 'string',
+            title: 'Stikkord'
+        },
+        {
+            name: 'game_developers',
+            type: 'string',
+            title: 'Utviklere'
+        },
+        {
+            name: 'game_publisher',
+            type: 'string',
+            title: 'Utgiver'
+        },
+        {
+            name: 'game_release',
+            type: 'date',
+            title: 'Utgivelsesår'
+        },
+        {
+            name: 'game_platforms',
+            type: 'string',
+            title: 'Plattformer'
+        },
+        {
+            name: 'game_stores',
+            type: 'string',
+            title: 'Kjøpsmuligheter'
+        },
+        {
+            name: 'game_time',
+            type: 'string',
+            title: 'Timer-Spilt'
         },
         {
             name: 'game_image',
             type: 'image',
-            title: 'game_poster'
+            title: 'Bilde'
         },
         {
             name: 'game_category',
-            title: 'spillkategori',
+            title: 'Spillkategori',
             type: 'reference',
             to: [{type: 'categories'}]
-        }
-
-            
-        
-    ]
+        },
+        {
+            name: 'api_id',
+            title: 'API_ID',
+            type: 'reference',
+            to: [{type: 'categories'}]
+        }  
+    ],
+    //Hent dataen fra feltene over og sett som variabler som kan brukes i prepare.
+    //lar meg vise spilldata i en array i sanity studio, på en pen måte.
+    preview: {
+        select: {
+            image: 'game_image',
+            title: 'game_title',
+            developer: 'game_developers',
+            date: 'game_release'
+        },
+        //gjør klar hvordan ting skal vises i hvilken rekefølge.
+        prepare: ({image, title, developer, date}) => ({
+            title,
+            subtitle: `${developer}, released: (${date})`,
+            media: image
+        })
+    }
 }
