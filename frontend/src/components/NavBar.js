@@ -14,11 +14,13 @@ export default function NavBar() {
             <Link to="/mygames" activeClassName="active">
               My Games
             </Link>
-
+          </li>
+          <li>
             <Link to="/myfavorites" activeClassName="active">
               My Favorites
             </Link>
-
+          </li>
+          <li>
             <Link to="/gameshop" activeClassName="active">
               Gameshop
             </Link>
