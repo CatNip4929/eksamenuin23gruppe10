@@ -1,8 +1,15 @@
 $color-primary: #161616;
 $color-navbar: #fff;
+$color-hover: #aba4a4;
+$color-active: #c6bebe;
 
 html {
   font-size: 62.5%;
+}
+
+.logo {
+  height: 20%;
+  width: 20%;
 }
 
 .nav-bar {
@@ -12,27 +19,34 @@ html {
   gap: 3rem;
   padding: 0 1.5rem;
 }
-.logo {
-  height: 20%;
-  width: 20%;
-}
 
-.nav-bar ul {
-  padding: 0;
-  margin: 0;
-  align-items: center;
-  list-style: none;
-  justify-content: space-between;
-  display: flex;
-  gap: 1.5rem;
-}
+.nav-bar {
+  ul {
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    list-style: none;
+    justify-content: space-between;
+    display: flex;
+    gap: 1.5rem;
+  }
+  li {
+    color: $color-navbar;
+    text-decoration: none;
 
-.nav-bar a {
-  color: $color-navbar;
-  text-decoration: none;
-}
+    &:active {
+      background-color: $color-active;
+    }
 
+    &:hover {
+      background-color: $color-hover;
+    }
+  }
+}
 .logo {
   width: 50%;
   height: 50%;
+}
+
+.games-container {
 }
