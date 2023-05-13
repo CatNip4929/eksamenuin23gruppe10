@@ -57,7 +57,8 @@ function App() {
         <Routes>
           <Route index element={<Dashboard games={game} images={images}/> } />
           <Route path="/gameshop" element={<GameShop gamesToShow={10}/>}/>
-          <Route path=':home' element={<MyGames games={game} images={images}/>} />
+          <Route path=':slug' element={<GamePage games={game} images={images}/>} />
+          <Route path=':MyGames' element={<MyGames games={game} images={images}/>} />
           <Route path=":slug" element={<GamePage/>}/> 
         </Routes>
       </div>
