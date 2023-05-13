@@ -18,6 +18,12 @@ export default {
             }
         },
         {
+            title: 'category',
+            name: 'category',
+            type: 'reference',
+            to: [{type: 'categories'}]
+          },
+        {
             name: 'category_image',
             type: 'image',
             title: 'bilde'

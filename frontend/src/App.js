@@ -10,6 +10,7 @@ import Login from "./components/Login";
 import Welcome from "./components/Welcome";
 import NavBar from "./components/NavBar";
 import GameShop from "./components/GameShop";
+import GameCard from "./components/GameCard";
 
 
 
@@ -48,18 +49,18 @@ function App() {
     localStorage.setItem("user", JSON.stringify(user))
     localStorage.setItem("exists", JSON.stringify(exists))
   }, [user, exists])
-  //<Route index element={<GameShop games={game} images={images}/>}/>
+  //<Route element={<GameCard games={game} images={images}/>}/>
   return (
     <>
-   
       <div className="App">
         <NavBar/>
         <Routes>
-          <Route index element={<GameShop gamesToShow={3}/> } />
+          <Route index element={<Dashboard games={game} images={images}/> } />
           <Route path="/gameshop" element={<GameShop gamesToShow={10}/>}/>
+          <Route path=':home' element={<MyGames games={game} images={images}/>} />
+          <Route path=":slug" element={<GamePage/>}/> 
         </Routes>
       </div>
-    
     </>
   );
 }
@@ -74,3 +75,6 @@ export default App;
 <Route path='home' element={<GameShop user={user}/>} />
 <Route path=":slug" element={<GamePage/>}/>
 </Routes> */}
+
+{/* <Route index element={<GameShop gamesToShow={3}/> } />
+    <Route path="/gameshop" element={<GameShop gamesToShow={10}/>}/> */}

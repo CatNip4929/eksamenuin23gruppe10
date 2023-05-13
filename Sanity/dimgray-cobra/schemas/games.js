@@ -58,15 +58,20 @@ export default {
             title: 'Kjøpsmuligheter'
         },
         {
-            name: 'game_time',
-            type: 'string',
-            title: 'Timer-Spilt'
-        },
-        {
             name: 'game_image',
             type: 'image',
             title: 'Bilde'
         },
+        {
+            name: 'game_categories',
+            type: 'array',
+            title: 'Game category',
+            of: [
+              {
+                  type: 'categories',
+              }
+            ]  
+          },
         {
             name: 'game_category',
             title: 'Spillkategori',

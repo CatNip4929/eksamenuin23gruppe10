@@ -4,6 +4,7 @@ import { fetchGame } from "../../lib/sanity/gameServices"
 
 
 
+
 export default function GamePage () {
 
    const {slug} = useParams()
