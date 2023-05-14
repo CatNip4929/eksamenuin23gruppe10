@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import GameCard from "./GameCard";
-
+import "../css/main.css";
 export default function GameShop({ gamesToShow }) {
   const [games, setGames] = useState([]);
 
@@ -21,7 +21,7 @@ export default function GameShop({ gamesToShow }) {
   }, []);
 
   return (
-    <div>
+    <div className="gameshop-site">
       <h1 className="center-title">GameShop</h1>
       <div className="games-container">
         {games.map((game, index) => (

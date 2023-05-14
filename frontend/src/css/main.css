@@ -44,13 +44,6 @@ html {
   height: 50%;
 }
 
-.games-container {
-  display: flex;
-  max-width: 120rem;
-  gap: 2rem;
-  padding: 2rem;
-}
-
 .center-title {
   text-align: center;
 }

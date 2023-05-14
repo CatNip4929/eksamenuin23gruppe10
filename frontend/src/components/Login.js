@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { useEffect, useRef } from "react";
+
 import { fetchUser } from "../lib/sanity/loginServices";
 import { Link } from "react-router-dom/";
 
 export default function Login({ setUser, exists, setExists }) {
   //lagre data for det som er skrevet inn i input field
   const [loginData, setLoginData] = useState();
-
+  const [formVisible, setFormVisible] = useState(true);
   //håndterer submitt for getLoginData
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,40 +29,53 @@ export default function Login({ setUser, exists, setExists }) {
     //set session data
     setExists(true);
     setUser(data);
+    setFormVisible(false);
+  };
+
+  const handleCancel = () => {
+    setLoginData({});
+    setFormVisible(false);
   };
 
   return (
     <>
-      <div className="popup">
-        <div className="popup-inner">
-          <h2>Login</h2>
-          <form onSubmit={handleSubmit} className="login">
-            <label>E-mail</label>
-            <input
-              type="email"
-              id="email"
-              placeholder="name@catmail.com"
-              name="email"
-              required
-              onChange={handleChange}
-            ></input>
-            <label>Password</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              placeholder="********"
-              disabled
-            ></input>
-            <button type="submit">Login</button>
-          </form>
-          {exists === false ? (
-            <p>
-              Brukeren finnes ikke, <Link to="index">Hjem</Link>
-            </p>
-          ) : null}
+      {formVisible && (
+        <div className="popup">
+          <div className="popup-inner">
+            <h2>Login</h2>
+            <form onSubmit={handleSubmit} className="login">
+              <label>E-mail</label>
+              <input
+                type="email"
+                id="email"
+                placeholder="name@catmail.com"
+                name="email"
+                required
+                onChange={handleChange}
+              ></input>
+              <label>Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="********"
+                disabled
+              ></input>
+              <div>
+                <button type="submit">Login</button>
+                <button type="button" onClick={handleCancel}>
+                  Cancel
+                </button>
+              </div>
+            </form>
+            {exists === false ? (
+              <p>
+                Brukeren finnes ikke, <Link to="index">Hjem</Link>
+              </p>
+            ) : null}
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 }
