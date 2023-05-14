@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../images/macslogo_white.png";
+
 import { Link, Outlet } from "react-router-dom";
 
 export default function NavBar() {
@@ -24,6 +25,9 @@ export default function NavBar() {
             <Link to="/gameshop" activeClassName="active">
               Gameshop
             </Link>
+          </li>
+          <li>
+            <Link to="/login">Login </Link>
           </li>
         </ul>
       </nav>
