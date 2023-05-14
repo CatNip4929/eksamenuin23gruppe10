@@ -38,8 +38,9 @@ export default function GameShop({ gamesToShow }) {
         ))}
       </div>
     </div>
-  );
+  )
 }
+    
 // {games?.map((p,i) => (<GameCard key={i} gameinfo={p}/> ))}
 
 // {games.map((game, index) => (

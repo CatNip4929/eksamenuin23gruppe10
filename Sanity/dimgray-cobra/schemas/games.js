@@ -4,7 +4,7 @@ export default {
     title: 'Spill',
     fields: [
         {
-            name: 'game_title',
+            name: 'name',
             type: 'string',
             title: 'Spill'
         },
@@ -13,7 +13,7 @@ export default {
             type: 'slug',
             title: 'URL-tittel',
             options: {
-                source: 'game_title',
+                source: 'name',
                 slugify: input => input.toLowerCase().replace(/\s+/g, '-').slice(0,150)
             }
         },
@@ -58,15 +58,20 @@ export default {
             title: 'Kjøpsmuligheter'
         },
         {
-            name: 'game_time',
-            type: 'string',
-            title: 'Timer-Spilt'
-        },
-        {
-            name: 'game_image',
+            name: 'background_image',
             type: 'image',
             title: 'Bilde'
         },
+        {
+            name: 'game_categories',
+            type: 'array',
+            title: 'Game category',
+            of: [
+              {
+                  type: 'categories',
+              }
+            ]  
+          },
         {
             name: 'game_category',
             title: 'Spillkategori',
@@ -84,8 +89,8 @@ export default {
     //lar meg vise spilldata i en array i sanity studio, på en pen måte.
     preview: {
         select: {
-            image: 'game_image',
-            title: 'game_title',
+            image: 'background_image',
+            title: 'name',
             developer: 'game_developers',
             date: 'game_release'
         },

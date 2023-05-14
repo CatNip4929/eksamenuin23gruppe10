@@ -10,11 +10,13 @@ import Login from "./components/Login";
 import Welcome from "./components/Welcome";
 import NavBar from "./components/NavBar";
 import GameShop from "./components/GameShop";
+import GameCard from "./components/GameCard";
+import FavoriteGames from "./components/FavoriteGames";
 
 function App() {
-  const [game, setGame] = useState(null);
-  const [images, setImages] = useState(null);
-
+  const [game, setGame] = useState(null)
+  // const [images, setImages] = useState(null)
+  
   const [exists, setExists] = useState(() => {
     const saved = localStorage.getItem("exists");
     const initialValue = JSON.parse(saved);
@@ -29,31 +31,29 @@ function App() {
 
   //fetch for alle spill
   const getGames = async () => {
-    const data = await fetchAllGames();
-    setGame(data);
-  };
-  //fetch for alle bilder til å bruke på mine spill/ mine favoritter
-  const getImages = async () => {
-    const data = await fetchImages();
-    setImages(data);
-  };
-
-  useEffect(() => {
-    getGames();
-    getImages();
+  const data = await fetchAllGames()
+  setGame(data)
+  }
+  
+  useEffect(() =>{
+    getGames()
     //lagrer userdata i localStorage i nettleserens Local Storage, under Key og Value.
-    localStorage.setItem("user", JSON.stringify(user));
-    localStorage.setItem("exists", JSON.stringify(exists));
-  }, [user, exists]);
-  //<Route index element={<GameShop games={game} images={images}/>}/>
+    localStorage.setItem("user", JSON.stringify(user))
+    localStorage.setItem("exists", JSON.stringify(exists))
+  }, [user, exists])
+  //<Route element={<GameCard games={game} images={images}/>}/>
   return (
     <>
       <div className="App">
         <NavBar />
         <Routes>
-          <Route index element={<GameShop gamesToShow={3} />} />
-          <Route path="/gameshop" element={<GameShop gamesToShow={10} />} />
+          <Route index element={<Dashboard games={game} /> } />
           <Route path="/login" element={<Login setUser={setUser} exists={exists} setExists={setExists}/>} />
+          <Route path="/gameshop" element={<GameShop gamesToShow={10}/>}/>
+          <Route path=':slug' element={<GamePage games={game} />} />
+          <Route path=':MyGames' element={<MyGames games={game}/>} />
+          <Route path=":slug" element={<GamePage/>}/> 
+          <Route path="/myfavorite" element={<FavoriteGames/>}/>
         </Routes>
       </div>
     </>

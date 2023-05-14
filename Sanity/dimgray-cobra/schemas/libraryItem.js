@@ -23,8 +23,8 @@ export default {
   //henter titel fra referansen over sin game title.
   preview: {
     select:{
-      title: 'game.game_title',
-      image: 'game.game_image',
+      title: 'game.name',
+      image: 'game.background_image',
       favorite: 'favorite',
       gameTime: 'gametime'
     },

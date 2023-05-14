@@ -1,11 +1,14 @@
-import GameCard from "./GameCard";
-import GameShop from "./GameShop";
-import "../css/main.css";
-export default function Dashboard({ games }) {
+import GameCard from "./GameCard"
+import GameShop from "./GameShop"
+import MyGames from "./pages/MyGames"
+
+export default function Dashboard ({games, gameinfo}) {
   return (
     <>
-      <h1>Dashboard</h1>¨
-      <GameShop gamesToShow={3} />
+      <main>
+      <GameShop gamesToShow={3}/>
+      <MyGames games={games} gameinfo={gameinfo}/>
+      </main>
     </>
   );
 }
