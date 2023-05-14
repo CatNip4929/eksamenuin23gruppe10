@@ -25,13 +25,14 @@ export default function GameShop({ gamesToShow }) {
       <h1 className="center-title">GameShop</h1>
       <div className="games-container">
         {games.map((game, index) => (
-          <div key={index}>
+          <div key={index} className="game-container">
+            <h2>{game.name}</h2>
             <img
               src={game.background_image}
               style={{ maxWidth: "200px" }}
               alt={game.name}
             />
-            <h2>{game.name}</h2>
+
             <p>{game.genres.map((genre) => genre.name).join(", ")}</p>
           </div>
         ))}

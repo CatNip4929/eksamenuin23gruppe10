@@ -7,6 +7,10 @@ html {
   font-size: 62.5%;
 }
 
+/*/
+Navbar
+/*/
+
 .logo {
   height: 20%;
   width: 20%;
@@ -57,10 +61,49 @@ html {
   height: 50%;
 }
 
+/*/
+DashBoard / GameShop
+/*/
+
 .center-title {
   text-align: center;
 }
 
+.games-container {
+  display: flex;
+  margin: auto;
+  max-width: 120rem;
+  flex-wrap: wrap;
+  padding: 2rem;
+  gap: 3rem;
+}
+
+.game-container {
+  border: solid 1px;
+  border-width: 1px;
+  border-image: linear-gradient(to right, red, purple);
+  border-image-slice: 1;
+
+  h2 {
+    text-align: center;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  img {
+    margin: 0.5rem;
+  }
+}
+
+/*/
+Layout
+/*/
+
+/*/
+Login Form
+/*/
 // Kilde for å lage popup Login : https://dev.to/afromatt6288/create-a-popup-form-for-login-and-then-style-it-37jl
 .popup {
   position: fixed;

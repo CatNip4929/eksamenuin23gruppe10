@@ -2,6 +2,9 @@ html {
   font-size: 62.5%;
 }
 
+/*/
+Navbar
+/*/
 .logo {
   height: 20%;
   width: 20%;
@@ -44,10 +47,44 @@ html {
   height: 50%;
 }
 
+/*/
+DashBoard / GameShop
+/*/
 .center-title {
   text-align: center;
 }
 
+.games-container {
+  display: flex;
+  margin: auto;
+  max-width: 120rem;
+  flex-wrap: wrap;
+  padding: 2rem;
+  gap: 3rem;
+}
+
+.game-container {
+  border: solid 1px;
+  border-width: 1px;
+  border-image: linear-gradient(to right, red, purple);
+  border-image-slice: 1;
+}
+.game-container h2 {
+  text-align: center;
+}
+.game-container p {
+  text-align: center;
+}
+.game-container img {
+  margin: 0.5rem;
+}
+
+/*/
+Layout
+/*/
+/*/
+Login Form
+/*/
 .popup {
   position: fixed;
   z-index: 1;
