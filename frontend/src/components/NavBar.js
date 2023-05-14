@@ -17,7 +17,7 @@ export default function NavBar() {
             </Link>
           </li>
           <li>
-            <Link to="/myfavorites" activeClassName="active">
+            <Link to="/myfavorite" activeClassName="active">
               My Favorites
             </Link>
           </li>

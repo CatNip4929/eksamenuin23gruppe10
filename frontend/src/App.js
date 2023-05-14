@@ -47,13 +47,13 @@ function App() {
       <div className="App">
         <NavBar />
         <Routes>
-          <Route index element={<Dashboard games={game} /> } />
+          <Route index element={<Dashboard games={game} user={user}/> } />
           <Route path="/login" element={<Login setUser={setUser} exists={exists} setExists={setExists}/>} />
           <Route path="/gameshop" element={<GameShop gamesToShow={10}/>}/>
           <Route path=':slug' element={<GamePage games={game} />} />
           <Route path=':MyGames' element={<MyGames games={game}/>} />
           <Route path=":slug" element={<GamePage/>}/> 
-          <Route path="/myfavorite" element={<FavoriteGames/>}/>
+          <Route path="/myfavorite" element={<FavoriteGames user={user}/>}/>
         </Routes>
       </div>
     </>
