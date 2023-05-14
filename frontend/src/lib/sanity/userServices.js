@@ -6,3 +6,9 @@ export const fetchAllUsers = async () => {
     return data
 
 }
+
+export const fetchUserLibrary = async (email) => {
+    const data = await client.fetch(`*[_type == "users" && user_mail == $email]
+    {game_library}`, {email})
+    return data[0]
+}

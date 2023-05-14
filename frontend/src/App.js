@@ -11,13 +11,14 @@ import Welcome from "./components/Welcome";
 import NavBar from "./components/NavBar";
 import GameShop from "./components/GameShop";
 import GameCard from "./components/GameCard";
+import FavoriteGames from "./components/FavoriteGames";
 
 
 
 
 function App() {
   const [game, setGame] = useState(null)
-  const [images, setImages] = useState(null)
+  // const [images, setImages] = useState(null)
   
   const [exists, setExists] = useState(() => {
     const saved = localStorage.getItem("exists")
@@ -36,15 +37,9 @@ function App() {
   const data = await fetchAllGames()
   setGame(data)
   }
-  //fetch for alle bilder til å bruke på mine spill/ mine favoritter
-  const getImages = async () => {
-  const data = await fetchImages()
-  setImages(data)
-  }
   
   useEffect(() =>{
     getGames()
-    getImages()
     //lagrer userdata i localStorage i nettleserens Local Storage, under Key og Value.
     localStorage.setItem("user", JSON.stringify(user))
     localStorage.setItem("exists", JSON.stringify(exists))
@@ -55,11 +50,12 @@ function App() {
       <div className="App">
         <NavBar/>
         <Routes>
-          <Route index element={<Dashboard games={game} images={images}/> } />
+          <Route index element={<Dashboard games={game} /> } />
           <Route path="/gameshop" element={<GameShop gamesToShow={10}/>}/>
-          <Route path=':slug' element={<GamePage games={game} images={images}/>} />
-          <Route path=':MyGames' element={<MyGames games={game} images={images}/>} />
+          <Route path=':slug' element={<GamePage games={game} />} />
+          <Route path=':MyGames' element={<MyGames games={game}/>} />
           <Route path=":slug" element={<GamePage/>}/> 
+          <Route path="/myfavorite" element={<FavoriteGames/>}/>
         </Routes>
       </div>
     </>
