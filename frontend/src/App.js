@@ -53,7 +53,7 @@ function App() {
         <Routes>
           <Route index element={<GameShop gamesToShow={3} />} />
           <Route path="/gameshop" element={<GameShop gamesToShow={10} />} />
-          <Route path="login" element={<Login />} />
+          <Route path="/login" element={<Login setUser={setUser} exists={exists} setExists={setExists}/>} />
         </Routes>
       </div>
     </>
