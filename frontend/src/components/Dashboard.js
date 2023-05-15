@@ -3,17 +3,17 @@ import GameCard from "./GameCard"
 import GameShop from "./GameShop"
 import MyGames from "./pages/MyGames"
 
-export default function Dashboard ({games, gameinfo, user }) {
+export default function Dashboard ({games, gameinfo, user}) {
   return (
     <>
-      <main>
-        <article>
+      <main className="container">
+        <article className="game-shop">
       <GameShop gamesToShow={3}/>
       </article>
-      <article>
+      <article className="my-games">
       <MyGames games={games} gameinfo={gameinfo}/>
       </article>
-      <article>
+      <article className="favorite-games">
         <FavoriteGames user={user}/>
       </article>
       </main>
