@@ -1,7 +1,6 @@
 import { useState } from "react";
-
 import { fetchUser } from "../lib/sanity/loginServices";
-import { Link } from "react-router-dom/";
+import { Navigate } from "react-router-dom";
 
 export default function Login({ setUser, exists, setExists }) {
   //lagre data for det som er skrevet inn i input field
@@ -12,7 +11,10 @@ export default function Login({ setUser, exists, setExists }) {
     e.preventDefault();
     //Tar inhold i input fields og sjekker opp mot dataen fra fetchUser spørringen
     getLoginData();
+  
   };
+
+  var goToDash = false
 
   const handleChange = (e) => {
     const inputName = e.target.name;
@@ -23,13 +25,16 @@ export default function Login({ setUser, exists, setExists }) {
     const data = await fetchUser(loginData.email);
     if (data == null) {
       //no user
+      // console.log("no user")
       setExists(false);
       return;
     }
     //set session data
+    // console.log("found user"+data.user_mail)
     setExists(true);
     setUser(data);
     setFormVisible(false);
+    goToDash = true
   };
 
   const handleCancel = () => {
@@ -62,7 +67,7 @@ export default function Login({ setUser, exists, setExists }) {
                 disabled
               ></input>
               <div>
-              <Link to="/"><button type="submit">Login</button></Link>
+              <button type="submit">Login</button>
                 <button type="button" onClick={handleCancel}>
                   Cancel
                 </button>
@@ -72,6 +77,9 @@ export default function Login({ setUser, exists, setExists }) {
               <p>
                 Brukeren finnes ikke 
               </p>
+            ) : null} 
+            {goToDash === true ? (
+              <Navigate to="/dashboard"/>
             ) : null}
           </div>
         </div>
