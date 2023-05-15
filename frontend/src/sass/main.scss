@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;1,200;1,500&family=Inter:wght@400;500;700&display=swap');
+
 $color-primary: #161616;
 $color-navbar: #fff;
 $color-hover: #aba4a4;
@@ -5,6 +7,9 @@ $color-active: #c6bebe;
 
 html {
   font-size: 62.5%;
+   font-family: 'Inter', sans-serif;
+  background-color:#131516;
+  color: #fff;
 }
 
 /*/
@@ -46,7 +51,8 @@ Navbar
       text-decoration: none;
 
       &.active {
-        background-color: $color-hover;
+        font-size: 1.2rem;
+        font-weight: bold;
       }
 
       &:hover {
@@ -124,11 +130,7 @@ DashBoard / GameShop
 /*/
 MyGames
 /*/
-.mygames {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+
 
 .game-list {
   display: grid;
@@ -157,7 +159,7 @@ Layout
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto 1fr;
   justify-items: center;
-  align-items: center;
+  
 }
 
 .game-shop {
@@ -174,6 +176,12 @@ Layout
 .favorite-games {
   grid-row: 2;
   grid-column: 2;
+}
+
+.favorites {
+  display: flex;
+  flex-direction: row;
+  
 }
 
 /*/
@@ -270,4 +278,101 @@ Login Form
       cursor: not-allowed;
     }
   }
+}
+
+.footer {
+  font-size: 1.5rem;
+  text-align: center;
+  border: solid 1px;
+  border-color: #fff;
+}
+
+/*
+Responsivt design
+*/
+
+
+/* Media QUERIES UNDER 1155PX */
+
+@media (max-width: 72.188rem) {
+  .favorites {
+    display: flex;
+    flex-direction: column;
+  }
+ }
+
+
+ /* Media QUERIES UNDER 760PX */
+ @media (max-width: 47.5rem) {
+  .game-container {
+    border: solid 1px;
+    max-height: 260px;
+    max-width: 112px;
+    border-width: 1px;
+    border-image: linear-gradient(to right, red, purple);
+    border-image-slice: 1;
+    list-style: none;
+    h2 {
+      font-size: 1.3rem;
+      text-align: center;
+    }
+  
+    p {
+      text-align: center;
+    }
+  
+    img {
+      margin: 0.5rem;
+    }
+  }
+ 
+
+ .card-container {
+  width: 150px;
+  height: 200px;
+
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+ .gameshop-img {
+  height: 90px;
+  width: 90px;
+  object-fit: cover;
+}
+
+.gamecard-img {
+  height: 90px;
+  width: 90px;
+  margin: 0 auto;
+}}
+
+/* Media QUERIES UNDER 585PX */
+
+@media (max-width: 36.563rem) {
+  .game-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1px;
+  }
+
+  .games-container {
+    display: flex;
+    margin: auto;
+    max-width: 120rem;
+    flex-wrap: wrap;
+    padding: 1rem;
+    
+  }
+}
+/* Media QUERIES UNDER 470PX */
+@media (max-width: 29.375rem) {
+
+
+
 }

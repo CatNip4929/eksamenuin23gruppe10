@@ -6,8 +6,12 @@ export default function MyGames ({games, gameinfo}) {
   return (
     
     <>
-      <h1 className="center-title">My Games</h1>
+    
+      <h1 className="center-title">My Games ({games?.length}) </h1>
+      <div className="game-list">
       {games?.map((p,i) => (<GameCard key={i} gameinfo={p}/> ))}
+      </div>
     </>
+    
   )
 }

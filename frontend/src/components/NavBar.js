@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../images/macslogo_white.png";
 
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Link, Outlet } from "react-router-dom";
 
 export default function NavBar() {
   return (
@@ -12,22 +12,22 @@ export default function NavBar() {
         </Link>
         <ul>
           <li>
-            <Link to="/mygames" activeClassName="active">
+            <NavLink to="/mygames" activeClassName="active">
               My Games
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/myfavorite" activeClassName="active">
+            <NavLink to="/myfavorite" activeClassName="active">
               My Favorites
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/gameshop" activeClassName="active">
+            <NavLink to="/gameshop" activeClassName="active">
               Gameshop
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/login">Login </Link>
+            <NavLink to="/login">Login </NavLink>
           </li>
         </ul>
       </nav>
