@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function GameCard ({games, gameinfo, showlink}) {
+export default function OwnedGameCard ({games, gameinfo, showlink}) {
     if (showlink){
         return(
         
