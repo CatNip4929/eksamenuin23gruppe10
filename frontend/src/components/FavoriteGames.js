@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react"
-import { fetchUserLibrary } from "../lib/sanity/userServices"
-import GameCard from "./GameCard"
+import { useEffect, useState } from "react";
+import { fetchUserLibrary } from "../lib/sanity/userServices";
+import GameCard from "./GameCard";
 
 
 export default function ({user, gameinfo}) {
@@ -17,10 +17,12 @@ export default function ({user, gameinfo}) {
     }, [user[0]] )
     return(
       
-        <>
-      <h1>My favorites</h1>
+      <>
+        <div className="favorites">
+        <h1 className="center-title">My favorites</h1>
       {userLib?.map((user) => user.favorites?.map((favorite) => (<GameCard key={favorite.game} gameinfo={favorite.game}/>)))}
-        </>
+      </div>
+      </>
     )
 }
 {/* <GameCard key={i} gameinfo={p} /> */}
