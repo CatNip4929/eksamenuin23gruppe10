@@ -10,7 +10,6 @@ export const fetchAllUsers = async () => {
 export const fetchUserLibrary = async (email) => {
     const data = await client.fetch(`*[_type == "users" && user_mail == $email]
     {"favorites": game_library[favorite] {..., game ->{..., background_image{...}}} }
-    
     `, {email})
     return data
 }

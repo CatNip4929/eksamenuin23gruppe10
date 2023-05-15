@@ -62,7 +62,7 @@ export default function Login({ setUser, exists, setExists }) {
                 disabled
               ></input>
               <div>
-                <button type="submit">Login</button>
+              <Link to="/"><button type="submit">Login</button></Link>
                 <button type="button" onClick={handleCancel}>
                   Cancel
                 </button>
@@ -70,7 +70,7 @@ export default function Login({ setUser, exists, setExists }) {
             </form>
             {exists === false ? (
               <p>
-                Brukeren finnes ikke, <Link to="index">Hjem</Link>
+                Brukeren finnes ikke 
               </p>
             ) : null}
           </div>
