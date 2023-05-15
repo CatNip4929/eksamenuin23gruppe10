@@ -21,28 +21,26 @@ export default function GameShop({ gamesToShow }) {
   }, []);
 
   return (
-    <div className="gameshop">
+    <div className="gameshop-site">
       <h1 className="center-title">GameShop</h1>
       <div className="games-container">
         {games.map((game, index) => (
           <div key={index} className="game-container">
             <h2>{game.name}</h2>
             <img
-              className="gameshop-img"
               src={game.background_image}
               style={{ maxWidth: "200px" }}
               alt={game.name}
             />
 
             <p>{game.genres.map((genre) => genre.name).join(", ")}</p>
-            <button className="buy-btn">Kjøp</button>
           </div>
         ))}
       </div>
     </div>
-  );
+  )
 }
-
+    
 // {games?.map((p,i) => (<GameCard key={i} gameinfo={p}/> ))}
 
 // {games.map((game, index) => (
