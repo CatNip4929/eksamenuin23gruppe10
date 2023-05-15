@@ -28,12 +28,14 @@ export default function GameShop({ gamesToShow }) {
             <div key={index} className="game-container">
               <h2>{game.name}</h2>
               <img
+                className="gameshop-img"
                 src={game.background_image}
                 style={{ maxWidth: "200px" }}
                 alt={game.name}
               />
 
               <p>{game.genres.map((genre) => genre.name).join(", ")}</p>
+              <button className="buy-btn">Kjøp</button>
             </div>
           ))}
         </div>
