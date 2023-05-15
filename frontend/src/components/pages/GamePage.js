@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { fetchGame } from "../../lib/sanity/gameServices"
-
-
+import GameTag from "../GameTag"
 
 
 export default function GamePage () {
@@ -35,9 +34,8 @@ export default function GamePage () {
       <p>Release date: {games?.game_release}</p>
       <p>Developers: {games?.game_developers}</p>
       <p>Publisher: {games?.game_publisher}</p>
-      <p></p>
-      <p></p>
     </article>
+    <GameTag categories={games?.game_categories || []} />
     </>
   )
 }

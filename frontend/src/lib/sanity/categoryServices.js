@@ -14,3 +14,6 @@ export const fetchCategory = async (category) => {
     }`,{category})
     return data
 }
+
+
+  
