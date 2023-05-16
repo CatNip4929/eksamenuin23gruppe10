@@ -3,7 +3,7 @@ import { fetchUserLibrary } from "../lib/sanity/userServices"
 import GameCard from "./GameCard"
 
 
-export default function ({user, gameinfo}) {
+export default function ({user, i}) {
     const [userLib, setUserLibrary] = useState()
     //fetch for alle spill
     const getUserLib = async () => {
@@ -20,7 +20,7 @@ export default function ({user, gameinfo}) {
         <>
           <div className="favorites">
             <h1 className="center-title">My favorites</h1>
-            {userLib?.map((user) => user.favorites?.map((favorite) => (<GameCard key={favorite.game} gameinfo={favorite.game}/>)))}
+            {userLib?.map((user) => user.favorites?.map((favorite, i) => (<GameCard key={i} gameinfo={favorite.game}/>)))}
             </div>
         </>
     )
