@@ -19,8 +19,9 @@ export default function ({user, i}) {
     return(
       
         <>
-          <div className="favorites">
-            <h1 className="center-title">My favorites</h1>
+          
+            <h1 className="center-title">My favorites<FontAwesomeIcon style={{color: 'yellow'}} icon={faStar} /></h1>
+            <div className="favorites">
             {userLib?.map((user) => user.favorites?.map((favorite, i) => (<GameCard key={i} gameinfo={favorite.game}/>)))}
             </div>
         </>

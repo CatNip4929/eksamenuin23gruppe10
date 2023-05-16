@@ -10,7 +10,7 @@ import NavBar from "./components/NavBar";
 import GameShop from "./components/GameShop";
 import FavoriteGames from "./components/FavoriteGames";
 import Footer from "./components/Footer";
-import { FaBars, FaXmark } from 'react-icons/fa';
+// import { FaBars, FaXmark } from 'react-icons/fa';
 function App() {
   const [game, setGame] = useState(null)
   // const [images, setImages] = useState(null)
