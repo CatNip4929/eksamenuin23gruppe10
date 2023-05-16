@@ -28,11 +28,6 @@ export default {
             title: 'Oppsumering'
         },
         {
-            name: 'game_tags',
-            type: 'string',
-            title: 'Stikkord'
-        },
-        {
             name: 'game_developers',
             type: 'string',
             title: 'Utviklere'
@@ -73,15 +68,9 @@ export default {
             ]  
           },
         {
-            name: 'game_category',
-            title: 'Spillkategori',
-            type: 'reference',
-            to: [{type: 'categories'}]
-        },
-        {
-            name: 'api_id',
-            title: 'API_ID',
-            type: 'reference',
+            name: 'gamescount',
+            title: 'API_count',
+            type: 'number',
             to: [{type: 'categories'}]
         }  
     ],

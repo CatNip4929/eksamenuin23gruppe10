@@ -4,7 +4,7 @@ import GameCard from "./GameCard"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 
-export default function ({user, gameinfo}) {
+export default function ({user, i}) {
     const [userLib, setUserLibrary] = useState()
     //fetch for alle spill
     const getUserLib = async () => {
@@ -20,9 +20,9 @@ export default function ({user, gameinfo}) {
       
         <>
           
-            <h1 className="center-title">My favorites <FontAwesomeIcon style={{color: 'yellow'}} icon={faStar} /></h1>
+            <h1 className="center-title">My favorites<FontAwesomeIcon style={{color: 'yellow'}} icon={faStar} /></h1>
             <div className="favorites">
-            {userLib?.map((user) => user.favorites?.map((favorite) => (<GameCard key={favorite.game} gameinfo={favorite.game}/>)))}
+            {userLib?.map((user) => user.favorites?.map((favorite, i) => (<GameCard key={i} gameinfo={favorite.game}/>)))}
             </div>
         </>
     )

@@ -6,13 +6,11 @@ import { fetchAllGames, fetchImages } from "./lib/sanity/gameServices";
 import MyGames from "./components/pages/MyGames";
 import GamePage from "./components/pages/GamePage";
 import Login from "./components/Login";
-import Welcome from "./components/Welcome";
 import NavBar from "./components/NavBar";
 import GameShop from "./components/GameShop";
-import GameCard from "./components/GameCard";
 import FavoriteGames from "./components/FavoriteGames";
 import Footer from "./components/Footer";
-import { FaBars, FaXmark } from 'react-icons/fa';
+// import { FaBars, FaXmark } from 'react-icons/fa';
 function App() {
   const [game, setGame] = useState(null)
   // const [images, setImages] = useState(null)
@@ -51,7 +49,7 @@ function App() {
           <Route path="/login" element={<Login setUser={setUser} exists={exists} setExists={setExists}/>} />
           <Route path="/gameshop" element={<GameShop gamesToShow={10}/>}/>
           <Route path=':slug' element={<GamePage games={game} />} />
-          <Route path=':MyGames' element={<MyGames games={game} user={user}/>} />
+          <Route path='/mygames' element={<MyGames games={game} user={user}/>} />
           <Route path=":slug" element={<GamePage/>}/> 
           <Route path="/myfavorite" element={<FavoriteGames user={user}/>}/>
         </Routes>

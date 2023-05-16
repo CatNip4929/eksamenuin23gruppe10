@@ -1,7 +1,8 @@
 import {client} from "./client"
 
 export const fetchAllCategories = async () => {
-    const data = await client.fetch(`*[_type == "categories"]`)
+    const data = await client.fetch(`*[_type == "games"] {game_categories}`)
+    console.log(data)
     return data
 }
 
@@ -13,3 +14,6 @@ export const fetchCategory = async (category) => {
     }`,{category})
     return data
 }
+
+
+  
