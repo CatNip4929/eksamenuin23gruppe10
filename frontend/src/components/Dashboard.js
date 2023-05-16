@@ -1,5 +1,4 @@
 import FavoriteGames from "./FavoriteGames";
-import GameCard from "./GameCard"
 import GameShop from "./GameShop"
 import MyGames from "./pages/MyGames"
 
