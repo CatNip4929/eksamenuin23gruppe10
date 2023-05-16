@@ -12,17 +12,17 @@ export default function NavBar() {
         </Link>
         <ul>
           <li>
-            <NavLink to="/mygames" activeClassName="active">
+            <NavLink to="/mygames">
               My Games
             </NavLink>
           </li>
           <li>
-            <NavLink to="/myfavorite" activeClassName="active">
+            <NavLink to="/myfavorite">
               My Favorites
             </NavLink>
           </li>
           <li>
-            <NavLink to="/gameshop" activeClassName="active">
+            <NavLink to="/gameshop">
               Gameshop
             </NavLink>
           </li>
