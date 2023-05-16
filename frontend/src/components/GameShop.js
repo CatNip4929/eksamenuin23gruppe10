@@ -22,7 +22,7 @@ export default function GameShop({ gamesToShow }) {
   return (
     <div className="gameshop-site">
       <div className="gameshop">
-        <h1 className="center-title">GameShop</h1>
+        <h1 className="center-title">GameShop </h1>
         <div className="games-container">
           {games.map((game, index) => (
             <div key={index} className="game-container">
