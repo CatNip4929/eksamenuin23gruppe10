@@ -10,7 +10,7 @@ export default function Dashboard ({games, gameinfo, user}) {
       <GameShop gamesToShow={3}/>
       </article>
       <article>
-      <MyGames  games={games} gameinfo={gameinfo}/>
+      <MyGames games={games} gameinfo={gameinfo}/>
       </article>
       <article className="favorite-games">
         <FavoriteGames user={user}/>
