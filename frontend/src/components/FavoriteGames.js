@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import { fetchUserLibrary } from "../lib/sanity/userServices"
 import GameCard from "./GameCard"
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 export default function ({user, i}) {
     const [userLib, setUserLibrary] = useState()

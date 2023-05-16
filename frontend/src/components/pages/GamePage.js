@@ -24,7 +24,7 @@ export default function GamePage () {
   return (
     
     <>
-    <article>
+    <article className="game-info">
       <h2>{games?.game_title}</h2>
       <img style={{maxWidth: "200px"}} src={games?.imageURL} alt={`produktbilde av ${games?.game_title}`}/>
       <p>Plot: {games?.game_plot}</p>
