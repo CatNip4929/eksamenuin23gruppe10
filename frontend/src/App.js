@@ -40,16 +40,22 @@ function App() {
     localStorage.setItem("exists", JSON.stringify(exists))
   }, [user, exists])
   //<Route element={<GameCard games={game} images={images}/>}/>
+
+  const handleLogout = () => {
+    // Tilbakestille brukerdata og innloggingsstatus
+    setUser("");
+    setExists(false);
+  };
   return (
     <>
       <div className="App">
-        <NavBar />
+      <NavBar user={user} handleLogout={handleLogout} />
         <Routes>
           <Route index element={<Dashboard games={game} user={user}/> } />
-          <Route path="/login" element={<Login setUser={setUser} exists={exists} setExists={setExists}/>} />
+          <Route path="/login" element={<Login setUser={setUser} exists={exists} setExists={setExists} />} />
           <Route path="/gameshop" element={<GameShop gamesToShow={10}/>}/>
-          <Route path=':slug' element={<GamePage games={game} />} />
-          <Route path='/mygames' element={<MyGames games={game} user={user}/>} />
+          <Route path='/mygames/:slug' element={<GamePage games={game} />} />
+          <Route path='/mygames' element={<MyGames user={user}/>} />
           <Route path=":slug" element={<GamePage/>}/> 
           <Route path="/myfavorite" element={<FavoriteGames user={user}/>}/>
         </Routes>

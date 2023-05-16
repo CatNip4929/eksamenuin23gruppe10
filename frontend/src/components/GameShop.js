@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import GameCard from "./GameCard";
+
 export default function GameShop({ gamesToShow }) {
   const [games, setGames] = useState([]);
 
