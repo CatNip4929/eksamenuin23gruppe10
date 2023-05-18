@@ -14,7 +14,7 @@ export default function Dashboard({ user }) {
       </article>
       {user && (
         <>
-          <article>
+          <article className="mygames-home-container">
             <MyGames user={user} />
           </article>
           <article className="favorite-games">

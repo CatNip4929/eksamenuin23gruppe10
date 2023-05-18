@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import logo from "../images/macslogo_white.png";
 import { NavLink, Link, Outlet, useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
 
 export default function NavBar({ user, handleLogout }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -46,7 +48,7 @@ export default function NavBar({ user, handleLogout }) {
             {user ? (
               <>
                 <button className="dropdown-toggle" onClick={toggleDropdown}>
-                  {user.user_name}
+                  {user.user_name}<FontAwesomeIcon className="profile-icon" icon={faUser} />
                 </button>
                 {isDropdownOpen && (
                   <ul className="dropdown-menu">
@@ -58,7 +60,7 @@ export default function NavBar({ user, handleLogout }) {
               </>
             ) : (
               <button className="login-button" onClick={handleLoginClick}>
-                Logg inn
+                Logg inn <FontAwesomeIcon className="profile-icon" icon={faUser} />
               </button>
             )}
           </li>
