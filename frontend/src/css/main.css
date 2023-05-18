@@ -64,6 +64,10 @@ DashBoard / GameShop
   text-align: center;
 }
 
+.favorite-icon {
+  padding-left: 1rem;
+}
+
 .games-container {
   display: flex;
   margin: auto;
@@ -252,6 +256,9 @@ Login Form
 }
 
 .footer {
+  bottom: 0;
+  left: 0;
+  width: 100%;
   font-size: 1.5rem;
   text-align: center;
   border: solid 1px;
