@@ -5,7 +5,7 @@ import GameTag from "./GameTag"
 
 
 export default function GamePage () {
-  //
+  //Henter ulik info fra fethGame der vi har brukt en groq-spørring for å hente ut info til spilldatabasen i sanity
   const {slug} = useParams()
   const [games, setGames] = useState(null)
 
@@ -29,6 +29,7 @@ export default function GamePage () {
       {games?.game_categories.length > 0 && (
       <p>Genre: {games?.game_categories.map(category => category.category_title).join(", ")}</p>
     )}
+      <p>Rating : {games?.game_rating}</p>
       <p>Release date: {games?.game_release}</p>
       <p>Developers: {games?.game_developers}</p>
       <p>Publisher: {games?.game_publisher}</p>

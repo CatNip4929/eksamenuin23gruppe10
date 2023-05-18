@@ -6,15 +6,16 @@ export default function NavBar({ user, handleLogout }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const navigate = useNavigate();
 
+  //Funksjon for åpning og lukking av dropdownmeny
   const toggleDropdown = () => {
     setIsDropdownOpen((prevIsDropdownOpen) => !prevIsDropdownOpen);
   };
-
+//Håndterer logout funksjon
   const handleLogoutClick = () => {
     handleLogout();
     setIsDropdownOpen(false);
   };
-
+//Navigasjon for loginn knapp
   const handleLoginClick = () => {
     navigate("/login");
   };

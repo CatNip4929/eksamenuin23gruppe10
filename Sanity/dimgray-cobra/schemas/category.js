@@ -16,3 +16,5 @@ export default {
           },
     ]
 }
+
+//Kilde: https://www.sanity.io/docs/schemas-and-forms

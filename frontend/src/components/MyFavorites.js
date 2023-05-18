@@ -8,18 +8,18 @@ import { NavLink } from "react-router-dom"
 export default function MyFavorites({user, i}) {
     const [userLib, setUserLibrary] = useState()
     const [favoritesCount, setFavoritesCount] = useState();
-    //fetch for alle spill
+//Fetch for alle spill
     const getUserLib = async () => {
     const data = await fetchUserFavorites(user.user_mail)
     console.log(data)
     setUserLibrary(data[0])
     }
-
+//Fetch for FavoritesCount for spill i favoritter og teller dem og gir den en count verdi basert på antall elementer i arrayen over favorittspill fra en brukers favoritt.
     const getUserFavoritesCount = async () => {
         const data = await fetchUserFavoriteGameCount(user.user_mail);
         setFavoritesCount(data[0]);
     }
-    
+//Vi setter user til 0, fordi det er kun 1 brukers informasjon som skal hentes inn
     useEffect (() => {
        getUserLib(user[0]) 
        getUserFavoritesCount(user[0]);
@@ -33,5 +33,3 @@ export default function MyFavorites({user, i}) {
         </>
     )
 }
-{/* <GameCard key={i} gameinfo={p} /> */}
-// {userLib?.map((p,i) => (console.log(userLib[i].favorites[i].game)))}

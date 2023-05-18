@@ -20,7 +20,7 @@ export default {
       type: 'number',
     }
   ],
-  //henter titel fra referansen over sin game title.
+  //Henter titel fra referansen over sin game title.
   preview: {
     select:{
       title: 'game.name',
@@ -28,7 +28,7 @@ export default {
       favorite: 'favorite',
       gameTime: 'gametime'
     },
-    //gjør klar hvordan ting skal vises i hvilken rekefølge.
+    //Gjør klar hvordan ting skal vises i hvilken rekefølge.
     //Vis en stjerne hvis itemet er favorisert, ellers ikke.
     //NB! dette vises kun i sanity studio.
     prepare: ({ title, image, favorite, gameTime}) => ({

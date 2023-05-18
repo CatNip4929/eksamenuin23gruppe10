@@ -75,6 +75,7 @@ export default {
     ],
     //Hent dataen fra feltene over og sett som variabler som kan brukes i prepare.
     //lar meg vise spilldata i en array i sanity studio, på en pen måte.
+    //Kilde: https://www.sanity.io/docs/previews-list-views
     preview: {
         select: {
             image: 'background_image',
@@ -82,7 +83,7 @@ export default {
             developer: 'game_developers',
             date: 'game_release'
         },
-        //gjør klar hvordan ting skal vises i hvilken rekefølge.
+        //Gjør klar hvordan ting skal vises i hvilken rekefølge.
         prepare: ({image, title, developer, date}) => ({
             title,
             subtitle: `${developer}, released: (${date})`,

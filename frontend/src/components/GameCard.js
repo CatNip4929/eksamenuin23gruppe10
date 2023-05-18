@@ -2,11 +2,15 @@ import { Link } from "react-router-dom";
 import { client } from "../lib/sanity/client";
 import imageUrlBuilder from '@sanity/image-url'
 
+//Kilde: https://www.sanity.io/docs/presenting-images
+//Kilde: https://www.sanity.io/docs/image-url#usage
+//Lar oss genere bilde fra sanity basert på url
 const builder = imageUrlBuilder(client)
 
 function urlFor(source) {
     return builder.image(source)
 }
+
 
 export default function GameCard ({id, gameinfo, showGenre, gametime}) {
     return(

@@ -7,6 +7,11 @@ export default function Login({ setUser, exists, setExists }) {
   const [formVisible, setFormVisible] = useState(true);
   const navigate = useNavigate();
 
+//Kilde: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+
+//Henter elementer på informasjon fra fetchUser og henter ut user_mail.
+//Sjekker om det som er skrevet i inputfeltet, er den informasjon som er i sanitydatabasen. Hvis data=0 setExist til false
+//Hvis setExist er true, setUser (data) med data og setFormVisable til å være false, naviger til /.
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = await fetchUser(loginData.email);
@@ -20,12 +25,13 @@ export default function Login({ setUser, exists, setExists }) {
     navigate("/");
   };
 
+//Funksjonen handleChange ser på brukerens endringer i skjemafeltet, med at den henter navn og verdi fra det endrede feltet og oppdaterer logindata med den nye verdien.
   const handleChange = (e) => {
     const inputName = e.target.name;
     const inputValue = e.target.value;
     setLoginData((prev) => ({ ...prev, [inputName]: inputValue }));
   };
-
+//Trykker brukeren på cancel, blir input fjernet fra form
   const handleCancel = () => {
     setLoginData({});
     setFormVisible(false);
