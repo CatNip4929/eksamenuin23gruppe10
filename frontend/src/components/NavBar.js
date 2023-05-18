@@ -51,9 +51,6 @@ export default function NavBar({ user, handleLogout }) {
                 {isDropdownOpen && (
                   <ul className="dropdown-menu">
                     <li>
-                      <NavLink to="/profile">Profil</NavLink>
-                    </li>
-                    <li>
                       <button onClick={handleLogoutClick}>Logg ut</button>
                     </li>
                   </ul>
