@@ -13,7 +13,7 @@ export default function GamePage () {
 
   const getGames = async (slug) => {
     const data = await fetchGame(slug)
-    console.log(data)
+    // console.log(data)
     setGames(data[0])
   }
 
