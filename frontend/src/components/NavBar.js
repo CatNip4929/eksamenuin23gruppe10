@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../images/macslogo_white.png";
+import { NavLink, Link, Outlet, useNavigate } from "react-router-dom";
 
-import { NavLink, Link, Outlet } from "react-router-dom";
+export default function NavBar({ user, handleLogout }) {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const navigate = useNavigate();
 
-export default function NavBar() {
+  const toggleDropdown = () => {
+    setIsDropdownOpen((prevIsDropdownOpen) => !prevIsDropdownOpen);
+  };
+
+  const handleLogoutClick = () => {
+    handleLogout();
+    setIsDropdownOpen(false);
+  };
+
+  const handleLoginClick = () => {
+    navigate("/login");
+  };
+
   return (
     <>
       <nav className="nav-bar">
@@ -26,8 +41,28 @@ export default function NavBar() {
               Gameshop
             </NavLink>
           </li>
-          <li>
-            <NavLink to="/login">Login </NavLink>
+          <li className="dropdown">
+            {user ? (
+              <>
+                <button className="dropdown-toggle" onClick={toggleDropdown}>
+                  {user.user_name}
+                </button>
+                {isDropdownOpen && (
+                  <ul className="dropdown-menu">
+                    <li>
+                      <NavLink to="/profile">Profil</NavLink>
+                    </li>
+                    <li>
+                      <button onClick={handleLogoutClick}>Logg ut</button>
+                    </li>
+                  </ul>
+                )}
+              </>
+            ) : (
+              <button className="login-button" onClick={handleLoginClick}>
+                Logg inn
+              </button>
+            )}
           </li>
         </ul>
       </nav>

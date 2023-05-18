@@ -7,10 +7,30 @@ export const fetchAllUsers = async () => {
 
 }
 
-export const fetchUserLibrary = async (email) => {
+export const fetchUserFavorites = async (email) => {
     const data = await client.fetch(`*[_type == "users" && user_mail == $email]
     {"favorites": game_library[favorite] {..., game ->{..., background_image{...}}} }
     `, {email})
     return data
 }
 
+export const fetchUserGameLibrary = async (email) => {
+    const data = await client.fetch(`*[_type == "users" && user_mail == $email]
+    {"games": game_library[] {..., game ->{..., background_image{...}}} }
+    `, {email})
+    return data
+}
+
+export const fetchUserGameCount = async (email) => {
+    const data = await client.fetch(`*[_type == "users" && user_mail == $email] {
+      "gameCount": count(game_library[])
+    }`, {email})
+    return data
+  }
+
+  export const fetchUserFavoriteGameCount = async (email) => {
+    const data = await client.fetch(`*[_type == "users" && user_mail == $email] {
+      "favoritesCount": count(game_library[favorite])
+    }`, {email})
+    return data
+  }
