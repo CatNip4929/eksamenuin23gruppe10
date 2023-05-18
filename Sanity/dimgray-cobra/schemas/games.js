@@ -49,7 +49,7 @@ export default {
         },
         {
             name: 'game_stores',
-            type: 'string',
+            type: 'url',
             title: 'Kjøpsmuligheter'
         },
         {

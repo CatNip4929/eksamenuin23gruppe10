@@ -2,7 +2,7 @@ import "./css/main.css";
 import { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
-import { fetchAllGames, fetchImages } from "./lib/sanity/gameServices";
+import { fetchAllGames } from "./lib/sanity/gameServices";
 import MyGames from "./components/pages/MyGames";
 import GamePage from "./components/pages/GamePage";
 import Login from "./components/Login";
@@ -10,22 +10,23 @@ import NavBar from "./components/NavBar";
 import GameShop from "./components/GameShop";
 import Footer from "./components/Footer";
 import MyFavorites from "./components/MyFavorites";
-// import { FaBars, FaXmark } from 'react-icons/fa';
+
 function App() {
   const [game, setGame] = useState(null)
-  // const [images, setImages] = useState(null)
-  
+//State som setter localstorage til sin verdi til true
   const [exists, setExists] = useState(() => {
     const saved = localStorage.getItem("exists");
     const initialValue = JSON.parse(saved);
     return initialValue || "";
   });
-  //State for å holde på hvilken bruker som er logget inn?
+  //State for å holde på hvilken bruker som er logget inn
   const [user, setUser] = useState(() => {
     const saved = localStorage.getItem("user");
     const initialValue = JSON.parse(saved);
     return initialValue || "";
   });
+
+//Kilde brukt: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
 
   //fetch for alle spill
   const getGames = async () => {
@@ -39,7 +40,6 @@ function App() {
     localStorage.setItem("user", JSON.stringify(user))
     localStorage.setItem("exists", JSON.stringify(exists))
   }, [user, exists])
-  //<Route element={<GameCard games={game} images={images}/>}/>
 
   const handleLogout = () => {
     // Tilbakestille brukerdata og innloggingsstatus
@@ -53,7 +53,7 @@ function App() {
         <Routes>
           <Route index element={<Dashboard games={game} user={user}/> } />
           <Route path="/login" element={<Login setUser={setUser} exists={exists} setExists={setExists} />} />
-          <Route path="/gameshop" element={<GameShop gamesToShow={10}/>}/>
+          <Route path="/gameshop" element={<GameShop gamesToShow={10}/>}/> 
           <Route path='/mygames/:slug' element={<GamePage games={game} />} />
           <Route path='/mygames' element={<MyGames user={user}/>} />
           <Route path=":slug" element={<GamePage/>}/> 
@@ -66,14 +66,3 @@ function App() {
 }
 
 export default App;
-
-{
-  /* <Routes>
-<Route index element={!exists? <Login setUser={setUser} exists={exists} setExists={setExists} />
-:
-<Welcome user={user} />}
-/>
-<Route path='home' element={<GameShop user={user}/>} />
-<Route path=":slug" element={<GamePage/>}/>
-</Routes> */
-}

@@ -5,10 +5,8 @@ import GameTag from "../GameTag"
 
 
 export default function GamePage () {
-
-   const {slug} = useParams()
-
-
+  //
+  const {slug} = useParams()
   const [games, setGames] = useState(null)
 
   const getGames = async (slug) => {
@@ -34,8 +32,11 @@ export default function GamePage () {
       <p>Release date: {games?.game_release}</p>
       <p>Developers: {games?.game_developers}</p>
       <p>Publisher: {games?.game_publisher}</p>
+      <p>Platforms: {games?.game_platforms}</p>
     </article>
     <GameTag categories={games?.game_categories || []} />
     </>
   )
 }
+
+// <p>Buy options: <a href="${games?.game_stores}"></a></p>
