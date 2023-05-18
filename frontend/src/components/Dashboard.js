@@ -1,7 +1,7 @@
 import React from "react";
-import FavoriteGames from "./FavoriteGames";
 import GameShop from "./GameShop";
 import MyGames from "./pages/MyGames";
+import MyFavorites from "./MyFavorites";
 
 export default function Dashboard({ user }) {
   return (
@@ -15,7 +15,7 @@ export default function Dashboard({ user }) {
             <MyGames user={user} />
           </article>
           <article className="favorite-games">
-            <FavoriteGames user={user} />
+            <MyFavorites user={user} />
           </article>
         </>
       )}

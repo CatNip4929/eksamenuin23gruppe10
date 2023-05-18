@@ -1,24 +1,31 @@
 import { useEffect, useState } from "react"
-import { fetchUserFavorites } from "../lib/sanity/userServices"
+import { fetchUserFavorites, fetchUserFavoriteGameCount } from "../lib/sanity/userServices"
 import GameCard from "./GameCard"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 
-export default function FavoriteGames({user, i}) {
+export default function MyFavorites({user, i}) {
     const [userLib, setUserLibrary] = useState()
+    const [favoritesCount, setFavoritesCount] = useState();
     //fetch for alle spill
     const getUserLib = async () => {
     const data = await fetchUserFavorites(user.user_mail)
     console.log(data)
     setUserLibrary(data[0])
     }
+
+    const getUserFavoritesCount = async () => {
+        const data = await fetchUserFavoriteGameCount(user.user_mail);
+        setFavoritesCount(data[0]);
+    }
     
     useEffect (() => {
        getUserLib(user[0]) 
+       getUserFavoritesCount(user[0]);
     }, [user[0]] )
     return(
         <>
-            <h1 className="center-title">My favorites<FontAwesomeIcon style={{color: 'yellow'}} icon={faStar} /></h1>
+            <h1 className="center-title">My favorites <FontAwesomeIcon style={{color: 'yellow'}} icon={faStar} /> ({favoritesCount?.favoritesCount})</h1>
             <div className="favorites">
             {userLib?.favorites.map((libraryItem, i) => (<GameCard key={i} gameinfo={libraryItem.game} showGenre={false} gametime={libraryItem.gametime}/>))}
             </div>

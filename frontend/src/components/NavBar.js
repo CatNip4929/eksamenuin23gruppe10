@@ -32,7 +32,7 @@ export default function NavBar({ user, handleLogout }) {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/myfavorite" activeclassname="active">
+            <NavLink to="/favourites" activeclassname="active">
               My Favorites
             </NavLink>
           </li>

@@ -8,8 +8,8 @@ import GamePage from "./components/pages/GamePage";
 import Login from "./components/Login";
 import NavBar from "./components/NavBar";
 import GameShop from "./components/GameShop";
-import FavoriteGames from "./components/FavoriteGames";
 import Footer from "./components/Footer";
+import MyFavorites from "./components/MyFavorites";
 // import { FaBars, FaXmark } from 'react-icons/fa';
 function App() {
   const [game, setGame] = useState(null)
@@ -57,7 +57,7 @@ function App() {
           <Route path='/mygames/:slug' element={<GamePage games={game} />} />
           <Route path='/mygames' element={<MyGames user={user}/>} />
           <Route path=":slug" element={<GamePage/>}/> 
-          <Route path="/myfavorite" element={<FavoriteGames user={user}/>}/>
+          <Route path="/favourites" element={<MyFavorites user={user}/>}/>
         </Routes>
         <Footer />
       </div>

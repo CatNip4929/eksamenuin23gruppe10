@@ -20,3 +20,17 @@ export const fetchUserGameLibrary = async (email) => {
     `, {email})
     return data
 }
+
+export const fetchUserGameCount = async (email) => {
+    const data = await client.fetch(`*[_type == "users" && user_mail == $email] {
+      "gameCount": count(game_library[])
+    }`, {email})
+    return data
+  }
+
+  export const fetchUserFavoriteGameCount = async (email) => {
+    const data = await client.fetch(`*[_type == "users" && user_mail == $email] {
+      "favoritesCount": count(game_library[favorite])
+    }`, {email})
+    return data
+  }
