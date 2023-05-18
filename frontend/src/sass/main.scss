@@ -75,6 +75,17 @@ Navbar
 
 
 
+.dropdown-toggle {
+  border: none;
+  background: none;
+ font-weight: bold;
+  font-size: inherit;
+  /* Add any other necessary styling */
+}
+
+.profile-icon {
+  padding-left: 0.6rem;
+}
 
 
 /*/
@@ -164,6 +175,14 @@ MyGames
 Layout
 /*/
 
+
+.my-games-page-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+
 .container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -189,9 +208,11 @@ Layout
 
 .favorites {
   display: flex;
-  flex-direction: row;
-  
+  flex-wrap: wrap;
 }
+
+
+
 
 /*/
 Game Page Info
@@ -301,16 +322,6 @@ Responsivt design
 */
 
 
-/* Media QUERIES UNDER 1155PX */
-
-@media (max-width: 72.188rem) {
-  .favorites {
-    display: flex;
-    flex-direction: column;
-  }
- }
-
-
  /* Media QUERIES UNDER 760PX */
  @media (max-width: 47.5rem) {
 
@@ -347,7 +358,7 @@ Responsivt design
   }
   .game-container {
     border: solid 1px;
-    max-height: 260px;
+    max-height: 265px;
     max-width: 112px;
     border-width: 1px;
     border-image: linear-gradient(to right, red, purple);
@@ -370,7 +381,7 @@ Responsivt design
 
  .card-container {
   width: 150px;
-  height: 200px;
+  height: 205px;
 
   img {
     display: block;
@@ -394,10 +405,18 @@ Responsivt design
 }}
 
 
-/* Media QUERIES UNDER 685PX */
+/* Media QUERIES UNDER 616PX */
 
-@media (max-width: 42.813rem) {
-
+@media (max-width: 38.5rem) {
+  .game-container {
+    border: solid 1px;
+    max-height: 265px;
+    max-width: 100px;
+    border-width: 1px;
+    border-image: linear-gradient(to right, red, purple);
+    border-image-slice: 1;
+    list-style: none;
+}
   
 }
 /* Media QUERIES UNDER 585PX */
@@ -414,10 +433,42 @@ Responsivt design
     margin: auto;
     max-width: 120rem;
     flex-wrap: wrap;
-    padding: 1rem;
+    padding: 1.5rem;
     
   }
 }
+
+/* Media QUURIES UNDER 528PX */
+
+@media (max-width:33rem) {
+
+  .games-container {
+    padding: 1rem;
+  }
+
+}
+
+/* Media QUURIES UNDER 490PX */
+
+@media(max-width:30.625rem) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .favorite-games {
+    grid-row: 2;
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+
+  .my-games {
+    grid-row: 3;
+    grid-column: 1 / -1;
+  }
+}
+
 /* Media QUERIES UNDER 450PX */
 @media (max-width: 28.125rem) {
   .game-list {
@@ -439,49 +490,15 @@ Responsivt design
     font-size: 1rem;
   }
 
-  .game-container {
-    border: solid 1px;
-    max-height: 210;
-    max-width: 130px;
-    border-width: 1px;
-    border-image: linear-gradient(to right, red, purple);
-    border-image-slice: 1;
-    list-style: none;
-    h2 {
-      font-size: 0.7rem;
-      text-align: center;
-    }
-  
-    p {
-      text-align: center;
-      font-size: 0.8rem;
-    }
-  
-    img {
-      margin: 0.5rem;
-      
-    }
-  }
-
-  .gameshop-img {
-    height: 80px;
-    width: 80px;
-    object-fit: cover;
-  }
-
-  .gamecard-img {
-    height: 90px;
-    width: 90px;
-    margin: 0 auto;
-    align-items: center;
-  }
-  .card-container {
-    width: 100px;
-    height: 150px; }
  
+  
 }
+  
 
-/* Media QUERIES UNDER 346PX */
+ 
+  
+
+/* Media QUERIES UNDER 375PX */
 
 @media (max-width: 21.625rem) {
 

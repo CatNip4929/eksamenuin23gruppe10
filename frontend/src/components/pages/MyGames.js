@@ -24,8 +24,10 @@ export default function MyGames({user, i}) {
     return(
       
         <>
-           <h2 className="center-title">My Games ({userCount?.gameCount})</h2>
+        <h2 className="center-title">My Games ({userCount?.gameCount})</h2>
+       <div className="my-games-page-container">
             {userLib?.games.map((libraryItem, i) => (<GameCard key={i} gameinfo={libraryItem.game} showGenre={true} gametime={libraryItem.gametime}/>))}
+            </div>
         </>
     )
 }
