@@ -41,6 +41,7 @@ Navbar
   justify-content: space-between;
 }
 
+
 .nav-bar {
   ul {
     padding: 0;
@@ -56,6 +57,7 @@ Navbar
     color: $color-navbar;
     font-size: 1rem;
     text-decoration: none;
+    white-space: nowrap;
 
     a {
       color: inherit;
@@ -73,8 +75,34 @@ Navbar
   }
 }
 
+.dropdown-toggle {
+  border: none;
+  background: none;
+ font-weight: bold;
+  font-size: inherit;
+  color: #ffff;
+ 
+}
 
+.login-button {
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  background: none;
+  font-size: 1rem;
+}
 
+ .profile-icon {
+   padding-left: 0.6rem;
+ }
+
+.logout-button {
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  background: none;
+  font-size: 1rem;
+}
 
 
 /*/
@@ -136,7 +164,14 @@ DashBoard / GameShop
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
-
+.simple-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  align-items: center;
+}
 /*/
 MyGames
 /*/
@@ -164,6 +199,14 @@ MyGames
 Layout
 /*/
 
+
+.my-games-page-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+
 .container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -185,13 +228,16 @@ Layout
 .favorite-games {
   grid-row: 2;
   grid-column: 2;
+  border-left: 1px solid rgba(255, 255, 255, 0.924)
 }
 
 .favorites {
   display: flex;
-  flex-direction: row;
-  
+  flex-wrap: wrap;
 }
+
+
+
 
 /*/
 Game Page Info
@@ -220,7 +266,7 @@ Login Form
   background-color: rgba(0, 0, 0, 0.4);
 
   &-inner {
-    background-color: white;
+    background-color: rgb(24, 26, 27);
     position: absolute;
     left: 50%;
     top: 50%;
@@ -289,65 +335,60 @@ Login Form
   }
 }
 
+
+/* Footer */
 .footer {
-  font-size: 1.5rem;
+  margin-top: 25rem;
+  font-size: 1rem;
   text-align: center;
   border: solid 1px;
   border-color: #fff;
+
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
 }
 
 /*
 Responsivt design
 */
+/* Media QUERIES UNDER 805PX */
 
+@media (max-width: 47.5rem) {
 
-/* Media QUERIES UNDER 1155PX */
-
-@media (max-width: 72.188rem) {
-  .favorites {
-    display: flex;
-    flex-direction: column;
-  }
- }
+  .nav-bar li {
+  font-size: 1rem;
+    }}
 
 
  /* Media QUERIES UNDER 760PX */
  @media (max-width: 47.5rem) {
 
   .nav-bar {
-    ul {
-      padding: 0;
-      margin: 0;
-  
-      list-style: none;
-  
-      display: flex;
-      gap: 2rem;
-    }
   
     li {
       color: $color-navbar;
       font-size: 0.7rem;
-      text-decoration: none;
   
       a {
         color: inherit;
         text-decoration: none;
   
         &.active {
-          font-size: 1.2rem;
+          font-size: 0.8rem;
           font-weight: bold;
         }
-  
-        &:hover {
-          background-color: $color-hover;
-        }
+       
       }
     }
   }
+
+  
+
   .game-container {
     border: solid 1px;
-    max-height: 260px;
+    max-height: 265px;
     max-width: 112px;
     border-width: 1px;
     border-image: linear-gradient(to right, red, purple);
@@ -370,7 +411,7 @@ Responsivt design
 
  .card-container {
   width: 150px;
-  height: 200px;
+  height: 205px;
 
   img {
     display: block;
@@ -394,10 +435,18 @@ Responsivt design
 }}
 
 
-/* Media QUERIES UNDER 685PX */
+/* Media QUERIES UNDER 616PX */
 
-@media (max-width: 42.813rem) {
-
+@media (max-width: 38.5rem) {
+  .game-container {
+    border: solid 1px;
+    max-height: 265px;
+    max-width: 100px;
+    border-width: 1px;
+    border-image: linear-gradient(to right, red, purple);
+    border-image-slice: 1;
+    list-style: none;
+}
   
 }
 /* Media QUERIES UNDER 585PX */
@@ -414,10 +463,43 @@ Responsivt design
     margin: auto;
     max-width: 120rem;
     flex-wrap: wrap;
-    padding: 1rem;
+    padding: 1.5rem;
     
   }
 }
+
+/* Media QUURIES UNDER 528PX */
+
+@media (max-width:33rem) {
+
+  .games-container {
+    padding: 1rem;
+  }
+
+}
+
+/* Media QUURIES UNDER 490PX */
+
+@media(max-width:30.625rem) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .favorite-games {
+    grid-row: 2;
+    grid-column: 1 / -1;
+    justify-self: center;
+    border-style: none;
+  }
+
+  .my-games {
+    grid-row: 3;
+    grid-column: 1 / -1;
+  }
+}
+
 /* Media QUERIES UNDER 450PX */
 @media (max-width: 28.125rem) {
   .game-list {
@@ -439,51 +521,7 @@ Responsivt design
     font-size: 1rem;
   }
 
-  .game-container {
-    border: solid 1px;
-    max-height: 210;
-    max-width: 130px;
-    border-width: 1px;
-    border-image: linear-gradient(to right, red, purple);
-    border-image-slice: 1;
-    list-style: none;
-    h2 {
-      font-size: 0.7rem;
-      text-align: center;
-    }
-  
-    p {
-      text-align: center;
-      font-size: 0.8rem;
-    }
-  
-    img {
-      margin: 0.5rem;
-      
-    }
-  }
-
-  .gameshop-img {
-    height: 80px;
-    width: 80px;
-    object-fit: cover;
-  }
-
-  .gamecard-img {
-    height: 90px;
-    width: 90px;
-    margin: 0 auto;
-    align-items: center;
-  }
-  .card-container {
-    width: 100px;
-    height: 150px; }
  
+  
 }
-
-/* Media QUERIES UNDER 346PX */
-
-@media (max-width: 21.625rem) {
-
-
-}
+  
