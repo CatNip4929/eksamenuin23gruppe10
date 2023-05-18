@@ -41,6 +41,7 @@ Navbar
   justify-content: space-between;
 }
 
+
 .nav-bar {
   ul {
     padding: 0;
@@ -73,18 +74,33 @@ Navbar
   }
 }
 
-
-
 .dropdown-toggle {
   border: none;
   background: none;
  font-weight: bold;
   font-size: inherit;
-  /* Add any other necessary styling */
+  color: #ffff;
+ 
 }
 
-.profile-icon {
-  padding-left: 0.6rem;
+.login-button {
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  background: none;
+  font-size: 1rem;
+}
+
+ .profile-icon {
+   padding-left: 0.6rem;
+ }
+
+.logout-button {
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  background: none;
+  font-size: 1rem;
 }
 
 
@@ -147,7 +163,14 @@ DashBoard / GameShop
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
-
+.simple-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+align-items: center;
+}
 /*/
 MyGames
 /*/
@@ -241,7 +264,7 @@ Login Form
   background-color: rgba(0, 0, 0, 0.4);
 
   &-inner {
-    background-color: white;
+    background-color: rgb(24, 26, 27);
     position: absolute;
     left: 50%;
     top: 50%;
@@ -311,10 +334,16 @@ Login Form
 }
 
 .footer {
+  margin-top: 25rem;
   font-size: 1.5rem;
   text-align: center;
   border: solid 1px;
   border-color: #fff;
+
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
 }
 
 /*

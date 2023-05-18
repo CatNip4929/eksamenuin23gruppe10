@@ -62,11 +62,27 @@ Navbar
   background: none;
   font-weight: bold;
   font-size: inherit;
-  /* Add any other necessary styling */
+  color: white;
+}
+
+.login-button {
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  background: none;
+  font-size: 1rem;
 }
 
 .profile-icon {
   padding-left: 0.6rem;
+}
+
+.logout-button {
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  background: none;
+  font-size: 1rem;
 }
 
 /*/
@@ -123,6 +139,15 @@ DashBoard / GameShop
   margin-right: auto;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+}
+
+.simple-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  align-items: center;
 }
 
 /*/
@@ -208,7 +233,7 @@ Login Form
   background-color: rgba(0, 0, 0, 0.4);
 }
 .popup-inner {
-  background-color: white;
+  background-color: rgb(24, 26, 27);
   position: absolute;
   left: 50%;
   top: 50%;
@@ -270,10 +295,15 @@ Login Form
 }
 
 .footer {
+  margin-top: 25rem;
   font-size: 1.5rem;
   text-align: center;
   border: solid 1px;
   border-color: #fff;
+}
+.footer a {
+  text-decoration: none;
+  color: #fff;
 }
 
 /*

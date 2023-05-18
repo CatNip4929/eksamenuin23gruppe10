@@ -51,3 +51,5 @@ export default function GameShop({ gamesToShow }) {
 //     <img src={game.background_image} style={{maxWidth: "200px"}} alt={game.name} />
 //     <h2>{game.name}</h2>
 //     <p>{game.genres.map((genre) => genre.name).join(", ")}</p>
+
+

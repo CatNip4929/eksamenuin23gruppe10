@@ -52,17 +52,14 @@ export default function NavBar({ user, handleLogout }) {
                 {isDropdownOpen && (
                   <ul className="dropdown-menu">
                     <li>
-                      <NavLink to="/profile">Profil</NavLink>
-                    </li>
-                    <li>
-                      <button onClick={handleLogoutClick}>Logg ut</button>
+                      <button className="logout-button" onClick={handleLogoutClick}>Logg ut</button>
                     </li>
                   </ul>
                 )}
               </>
             ) : (
               <button className="login-button" onClick={handleLoginClick}>
-                Logg inn
+                Logg inn <FontAwesomeIcon className="profile-icon" icon={faUser} />
               </button>
             )}
           </li>
