@@ -1,10 +1,10 @@
 import "./css/main.css";
 import { useState, useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
 import { fetchAllGames } from "./lib/sanity/gameServices";
-import MyGames from "./components/pages/MyGames";
-import GamePage from "./components/pages/GamePage";
+import MyGames from "./components/MyGames";
+import GamePage from "./components/GamePage";
 import Login from "./components/Login";
 import NavBar from "./components/NavBar";
 import GameShop from "./components/GameShop";
@@ -12,6 +12,7 @@ import Footer from "./components/Footer";
 import MyFavorites from "./components/MyFavorites";
 
 function App() {
+  let navigate = useNavigate()
   const [game, setGame] = useState(null)
 //State som setter localstorage til sin verdi til true
   const [exists, setExists] = useState(() => {
@@ -41,10 +42,13 @@ function App() {
     localStorage.setItem("exists", JSON.stringify(exists))
   }, [user, exists])
 
+
+
   const handleLogout = () => {
-    // Tilbakestille brukerdata og innloggingsstatus
-    setUser("");
-    setExists(false);
+    // Ferner brukerdata og innloggingsstatus, og refresh siden
+    localStorage.removeItem("user")
+    localStorage.removeItem("exists")
+    navigate(0)
   };
   return (
     <>

@@ -49,7 +49,7 @@ export default {
         },
         {
             name: 'game_stores',
-            type: 'url',
+            type: 'string',
             title: 'Kjøpsmuligheter'
         },
         {
@@ -68,11 +68,10 @@ export default {
             ]  
           },
         {
-            name: 'gamescount',
-            title: 'API_count',
+            name: 'api_id',
+            title: 'api-id',
             type: 'number',
-            to: [{type: 'categories'}]
-        }  
+        },  
     ],
     //Hent dataen fra feltene over og sett som variabler som kan brukes i prepare.
     //lar meg vise spilldata i en array i sanity studio, på en pen måte.

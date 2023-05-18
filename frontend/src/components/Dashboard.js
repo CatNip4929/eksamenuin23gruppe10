@@ -1,6 +1,6 @@
 import React from "react";
 import GameShop from "./GameShop";
-import MyGames from "./pages/MyGames";
+import MyGames from "./MyGames";
 import MyFavorites from "./MyFavorites";
 
 export default function Dashboard({ user }) {

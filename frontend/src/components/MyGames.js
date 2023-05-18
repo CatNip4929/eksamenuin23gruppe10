@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
-import { fetchUserGameCount, fetchUserGameLibrary } from "../../lib/sanity/userServices"
-import GameCard from ".././GameCard"
+import { fetchUserGameCount, fetchUserGameLibrary } from "../lib/sanity/userServices"
+import GameCard from "./GameCard"
+import { NavLink } from "react-router-dom"
 
 export default function MyGames({user, i}) {
     const [userLib, setUserLibrary] = useState()
@@ -24,7 +25,7 @@ export default function MyGames({user, i}) {
     return(
       
         <>
-           <h2 className="center-title">My Games ({userCount?.gameCount})</h2>
+          <NavLink to="/mygames"><h2 className="center-title">My Games ({userCount?.gameCount})</h2></NavLink>
             {userLib?.games.map((libraryItem, i) => (<GameCard key={i} gameinfo={libraryItem.game} showGenre={true} gametime={libraryItem.gametime}/>))}
         </>
     )

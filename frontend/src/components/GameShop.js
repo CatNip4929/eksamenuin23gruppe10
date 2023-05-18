@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 
 export default function GameShop({ gamesToShow }) {
   const [games, setGames] = useState([null]);
@@ -15,7 +16,7 @@ export default function GameShop({ gamesToShow }) {
       (game) => game?.background_image !== null 
     );
     const gameLimitations = imageGames.slice(0, gamesToShow);
-    // console.log(data)
+    console.log(data)
     setGames(gameLimitations);
   };
 
@@ -27,7 +28,7 @@ export default function GameShop({ gamesToShow }) {
   return (
     <div className="gameshop-site">
       <div className="gameshop">
-        <h1 className="center-title">GameShop </h1>
+      <NavLink to="/gameshop"><h1 className="center-title">GameShop </h1></NavLink>
         <div className="games-container">
           {games?.map((game, index) => (
             <div key={index} className="game-container">
@@ -41,6 +42,7 @@ export default function GameShop({ gamesToShow }) {
               <p>{game?.genres.map((genre) => genre?.name).join(", ")}</p>
               <button className="buy-btn" >
                 <a href={`https://store.steampowered.com`}>Kjøp</a></button>
+                
                 
             </div>
           ))}

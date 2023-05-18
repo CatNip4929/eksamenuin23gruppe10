@@ -3,6 +3,7 @@ import { fetchUserFavorites, fetchUserFavoriteGameCount } from "../lib/sanity/us
 import GameCard from "./GameCard"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { NavLink } from "react-router-dom"
 
 export default function MyFavorites({user, i}) {
     const [userLib, setUserLibrary] = useState()
@@ -25,7 +26,7 @@ export default function MyFavorites({user, i}) {
     }, [user[0]] )
     return(
         <>
-            <h1 className="center-title">My favorites <FontAwesomeIcon style={{color: 'yellow'}} icon={faStar} /> ({favoritesCount?.favoritesCount})</h1>
+            <NavLink to="/favourites"><h2 className="center-title">My favorites <FontAwesomeIcon style={{color: 'yellow'}} icon={faStar} /> ({favoritesCount?.favoritesCount})</h2></NavLink>
             <div className="favorites">
             {userLib?.favorites.map((libraryItem, i) => (<GameCard key={i} gameinfo={libraryItem.game} showGenre={false} gametime={libraryItem.gametime}/>))}
             </div>

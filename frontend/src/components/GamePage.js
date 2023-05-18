@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { fetchGame } from "../../lib/sanity/gameServices"
-import GameTag from "../GameTag"
+import { fetchGame } from "../lib/sanity/gameServices"
+import GameTag from "./GameTag"
 
 
 export default function GamePage () {
@@ -23,7 +23,7 @@ export default function GamePage () {
     
     <>
     <article className="game-info">
-      <h2>{games?.game_title}</h2>
+      <h2>{games?.name}</h2>
       <img style={{maxWidth: "200px"}} src={games?.imageURL} alt={`produktbilde av ${games?.game_title}`}/>
       <p>Plot: {games?.game_plot}</p>
       {games?.game_categories.length > 0 && (
@@ -33,10 +33,10 @@ export default function GamePage () {
       <p>Developers: {games?.game_developers}</p>
       <p>Publisher: {games?.game_publisher}</p>
       <p>Platforms: {games?.game_platforms}</p>
+      <p>Buy options: <a href={games?.game_stores}>{games?.game_stores}</a></p>
     </article>
     <GameTag categories={games?.game_categories || []} />
     </>
   )
 }
 
-// <p>Buy options: <a href="${games?.game_stores}"></a></p>
