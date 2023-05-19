@@ -6,7 +6,7 @@ export default function GameShop({ gamesToShow }) {
 //Henter ut alle spill filtrert på om de har bilde
 //Henter ut info fra rawg api, der vi filtrer på released dato. For å unngå spill uten bilder så måtte vi bruke filter og øke page sizen. Ordering kan endres til feks metacritic for å få ut andre spill
 //Bruker funksjonen gameLimitations for å skille hvor mange spill som skal vises, fra 0 til ønsket antall, antallet bestemmer vi i dashboard.js og app.js
- 
+useEffect(() => {
   const fetchGames = async () => {
     const response = await fetch(
       `https://api.rawg.io/api/games?ordering=-released&key=37183cfb9c70422587800abe07c5aebc&page_size=100` //Kilde: https://api.rawg.io/docs/#operation/games_list
@@ -20,9 +20,8 @@ export default function GameShop({ gamesToShow }) {
     setGames(gameLimitations);
   };
 
-  useEffect(() => {
     fetchGames();
-  }, []);
+  }, [gamesToShow]);
 
   
   return (
