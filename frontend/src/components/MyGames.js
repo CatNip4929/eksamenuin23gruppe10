@@ -23,8 +23,11 @@ export default function MyGames({user, i}) {
     }, [user[0]] )
     return(
         <>
+        
           <NavLink to="/mygames"><h2 className="center-title">My Games ({userCount?.gameCount})</h2></NavLink>
+          <div className="mygames-container">
             {userLib?.games.map((libraryItem, i) => (<GameCard key={i} gameinfo={libraryItem.game} showGenre={true} gametime={libraryItem.gametime}/>))}
+            </div>
         </>
     )
 }
