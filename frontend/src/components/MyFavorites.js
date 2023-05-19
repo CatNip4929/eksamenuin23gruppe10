@@ -9,21 +9,22 @@ export default function MyFavorites({user, i}) {
     const [userLib, setUserLibrary] = useState()
     const [favoritesCount, setFavoritesCount] = useState();
 //Fetch for alle spill
+    useEffect (() => {
     const getUserLib = async () => {
     const data = await fetchUserFavorites(user.user_mail)
-    console.log(data)
+    //console.log(data)
     setUserLibrary(data[0])
     }
+    
 //Fetch for FavoritesCount for spill i favoritter og teller dem og gir den en count verdi basert på antall elementer i arrayen over favorittspill fra en brukers favoritt.
     const getUserFavoritesCount = async () => {
         const data = await fetchUserFavoriteGameCount(user.user_mail);
         setFavoritesCount(data[0]);
     }
-//Vi setter user til 0, fordi det er kun 1 brukers informasjon som skal hentes inn
-    useEffect (() => {
-       getUserLib(user[0]) 
+//Ved endringer i user, hentes brukerens spillbibliotek og favorittspill.
+       getUserLib() 
        getUserFavoritesCount(user[0]);
-    }, [user[0]] )
+    }, [user] )
     return(
         <>
             <NavLink to="/favourites"><h2 className="center-title">My favorites <FontAwesomeIcon style={{color: 'yellow'}} icon={faStar} /> ({favoritesCount?.favoritesCount})</h2></NavLink>
