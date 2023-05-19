@@ -7,6 +7,7 @@ export default function MyGames({user, i}) {
     const [userLib, setUserLibrary] = useState()
     const [userCount, setUserCount] = useState()
     //Fetch for alle spill
+    useEffect (() => {
     const getUserLib = async () => {
     const data = await fetchUserGameLibrary (user.user_mail)
     setUserLibrary(data[0])
@@ -17,10 +18,9 @@ export default function MyGames({user, i}) {
         setUserCount (data[0])
     }
     
-    useEffect (() => {
-       getUserLib(user[0]) 
+       getUserLib() 
        getUserCount(user[0])
-    }, [user[0]] )
+    }, [user] )
     return(
         <>
         
