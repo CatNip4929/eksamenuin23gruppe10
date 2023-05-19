@@ -227,6 +227,14 @@ Game Page Info
   flex-direction: column;
   align-items: center;
 }
+.game-info p {
+  width: 50%;
+  clear: both;
+}
+.game-info img {
+  margin-top: 2rem;
+  margin-bottom: 2.5rem;
+}
 
 /*/
 Login Form

@@ -124,6 +124,8 @@ DashBoard / GameShop
   flex-wrap: wrap;
   padding: 2rem;
   gap: 3rem;
+
+ 
 }
 
 .game-container {
@@ -254,6 +256,16 @@ Game Page Info
   margin: 0 auto;
   flex-direction: column;
   align-items: center;
+
+  p{ 
+    width: 50%;
+    clear: both;
+  }
+
+  img{
+    margin-top: 2rem;
+    margin-bottom: 2.5rem;
+  }
 }
 
 /*/
