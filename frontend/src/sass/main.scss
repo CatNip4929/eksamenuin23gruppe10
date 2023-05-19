@@ -175,12 +175,6 @@ MyGames
 /*/
 
 
-.game-list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 20px;
-}
-
 .gameshop-img {
   height: 150px;
   width: 150px;
@@ -479,7 +473,6 @@ Responsivt design
 /* Media QUURIES UNDER 528PX */
 
 @media (max-width:33rem) {
-
   .games-container {
     padding: 1rem;
   }
@@ -510,9 +503,9 @@ Responsivt design
 
 /* Media QUERIES UNDER 450PX */
 @media (max-width: 28.125rem) {
-  .game-list {
-   display: flex;
-   flex-direction: column;
+  .logo {
+    height: 60%;
+    width: 60%;
   }
 }
 
@@ -528,8 +521,14 @@ Responsivt design
     gap: 1.5rem;
     font-size: 1rem;
   }
-
- 
-  
 }
-  
+
+
+  /* Media QUERIES UNDER 360PX */
+
+  @media (max-width: 22.5rem) {
+    .logo {
+      height: 90%;
+      width: 90%;
+    }
+  }

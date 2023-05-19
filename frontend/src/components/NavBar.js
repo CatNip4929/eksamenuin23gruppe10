@@ -53,7 +53,7 @@ export default function NavBar({ user, handleLogout }) {
                 {isDropdownOpen && (
                   <ul className="dropdown-menu">
                     <li>
-                      <button onClick={handleLogoutClick}>Logg ut</button>
+                      <button className="login-button" onClick={handleLogoutClick}>Logg ut</button>
                     </li>
                   </ul>
                 )}
